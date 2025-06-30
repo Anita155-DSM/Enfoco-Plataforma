@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/EnFoco-FrontEnd/cs/style.css" />
 </head>
 <body>
-    
+  <aside class="sidebar">
+    <h2>Menú</h2>
+    <nav>
+      <ul>
+        <li><a href="/EnFoco-FrontEnd/indexUser.html">Inicio</a></li>
+        <li><a href="/EnFoco-FrontEnd/tareas.html">Tareas</a></li>
+        <li><a href="/EnFoco-FrontEnd/calendario.html">Calendario</a></li>
+        <li><a href="/EnFoco-FrontEnd/dashboard.html">Estadísticas</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="dashboard-main">
+    <header>
+      <h1></h1>
+    </header>
+
+    <section class="dashboard-cards">
+      <div class="card">
+        <h3>Tareas Pendientes</h3>
+        <p>5</p>
+      </div>
+      <div class="card">
+        <h3>Eventos Hoy</h3>
+        <p>2</p>
+      </div>
+      <div class="card">
+        <h3>Progreso</h3>
+        <p>75%</p>
+      </div>
+    </section>
+
+    <section class="dashboard-graphs">
+      <h2>Estadísticas</h2>
+      <div id="chart"></div>
+    </section>
+  </main>
+
+  <script src="js/chart.js"></script>
 </body>
 </html>
