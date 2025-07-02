@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/EnFoco-FrontEnd/cs/style.css">
+  <style>
+    /* Si no tenés estilos definidos en tu CSS */
+    .energia-alta { background-color: #28a745 !important; color: white; }
+    .energia-media { background-color: #ffc107 !important; color: black; }
+    .energia-baja { background-color: #dc3545 !important; color: white; }
+  </style>
 </head>
 <body class="custom-body d-flex flex-column min-vh-100">
 
@@ -25,7 +31,6 @@
     </div>
   </nav>
 
-
   <main class="container my-5">
     <h2 class="text-info text-center mb-4">Mapa de Energía Diaria</h2>
 
@@ -44,7 +49,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- rangos horarios -->
           <tr>
             <th>08:00 - 10:00</th>
             <td data-energy></td>
@@ -73,12 +77,31 @@
       </table>
     </div>
   </main>
+
   <footer class="custom-footer">
     <p>&copy; 2025 EnFoco. Todos los derechos reservados.</p>
   </footer>
 
   <!-- Bootstrap y JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/EnFoco-FrontEnd/js/energia.js"></script>
+
+  <!-- Script simple para manejar los colores -->
+  <script>
+    document.querySelectorAll('[data-energy]').forEach(cell => {
+      cell.addEventListener('click', () => {
+        cell.classList.remove('energia-alta', 'energia-media', 'energia-baja');
+        if (!cell.dataset.estado || cell.dataset.estado === 'baja') {
+          cell.classList.add('energia-media');
+          cell.dataset.estado = 'media';
+        } else if (cell.dataset.estado === 'media') {
+          cell.classList.add('energia-alta');
+          cell.dataset.estado = 'alta';
+        } else {
+          cell.classList.add('energia-baja');
+          cell.dataset.estado = 'baja';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
