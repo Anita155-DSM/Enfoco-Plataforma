@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetivos Diarios</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --navy: #2F4156;
+      --teal: #567C8D;
+      --sky-blue: #C8D9E6;
+      --beige: #F5EFEB;
+      --white: #FFFFFF;
+      --dark-navy: #1f2a38;
+      --light-teal: #8cbacb;
+
+      --primary-gradient: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+      --success-gradient: linear-gradient(135deg, var(--light-teal) 0%, var(--teal) 100%);
+      --warning-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --background-gradient: linear-gradient(135deg, var(--beige) 0%, var(--sky-blue) 100%);
+      --glass-bg: rgba(255, 255, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.18);
+    }
+
+    body {
+      background: var(--background-gradient);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .glass-container {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .header-title {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .current-date {
+      color: var(--dark-navy);
+      font-size: 1.1rem;
+    }
+
+    .objective-card {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .objective-card.completed {
+      background: rgba(140, 186, 203, 0.15);
+      border-color: rgba(140, 186, 203, 0.3);
+    }
+
+    .objective-card.completed .objective-title {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
+    .priority-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      font-size: 0.8rem;
+    }
+
+    .priority-1 {
+      background: var(--success-gradient);
+    }
+
+    .priority-2 {
+      background: var(--primary-gradient);
+    }
+
+    .priority-3 {
+      background: var(--warning-gradient);
+    }
+
+    .objective-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .objective-description {
+      color: var(--dark-navy);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .objective-actions {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .btn-custom {
+      border-radius: 25px;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-complete {
+      background: var(--success-gradient);
+      color: white;
+    }
+
+    .btn-complete:hover,
+    .btn-edit:hover,
+    .btn-delete:hover,
+    .btn-add:hover {
+      transform: scale(1.05);
+      color: white;
+    }
+
+    .btn-edit {
+      background: var(--primary-gradient);
+      color: white;
+    }
+
+    .btn-delete {
+      background: var(--warning-gradient);
+      color: white;
+    }
+
+    .add-objective-form {
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .form-control:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 0.2rem rgba(86, 124, 141, 0.25);
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-add {
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 25px;
+      padding: 0.75rem 2rem;
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .progress-section {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .progress-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--teal) 0deg, var(--navy) var(--progress-angle, 0deg), rgba(255, 255, 255, 0.2) var(--progress-angle, 0deg));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      position: relative;
+    }
+
+    .progress-circle::before {
+      content: '';
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background: var(--glass-bg);
+      border-radius: 50%;
+      backdrop-filter: blur(10px);
+    }
+
+    .progress-text {
+      position: relative;
+      z-index: 1;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--navy);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--dark-navy);
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    .drag-handle {
+      cursor: grab;
+      color: var(--dark-navy);
+      margin-right: 0.5rem;
+    }
+
+    .drag-handle:active {
+      cursor: grabbing;
+    }
+
+    .sortable-ghost {
+      opacity: 0.4;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg custom-navbar px-4">
+    <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/indexUser.html">EnFoco</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/indexUser.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/tareas.html">Tareas</a></li>
+        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/calendario.html">Calendario</a>
+        </li>
+        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/objetivos.html">Objetivos</a>
+        </li>
+        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/energia.html">Mapa de
+            energía</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="glass-container">
+      <!-- Header -->
+      <div class="header-section">
+        <h1 class="header-title">
+          <i class="fas fa-target"></i>
+          Objetivos Diarios
+        </h1>
+        <p class="current-date" id="currentDate"></p>
+      </div>
+
+      <!-- Progress Section -->
+      <div class="progress-section">
+        <div class="progress-circle" id="progressCircle">
+          <div class="progress-text" id="progressText">0%</div>
+        </div>
+        <p class="text-muted">Progreso del día</p>
+      </div>
+
+      <!-- Objectives List -->
+      <div id="objectivesList">
+        <!-- Los objetivos se cargarán aquí -->
+      </div>
+
+      <!-- Add Objective Form -->
+      <div class="add-objective-form" id="addObjectiveForm" style="display: none;">
+        <h5 class="mb-3">
+          <i class="fas fa-plus-circle"></i>
+          Agregar Nuevo Objetivo
+        </h5>
+        <form id="objectiveForm">
+          <div class="mb-3">
+            <label for="objectiveTitle" class="form-label">Título del Objetivo *</label>
+            <input type="text" class="form-control" id="objectiveTitle" required maxlength="100">
+          </div>
+          <div class="mb-3">
+            <label for="objectiveDescription" class="form-label">Descripción (opcional)</label>
+            <textarea class="form-control" id="objectiveDescription" rows="3" maxlength="300"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="objectivePriority" class="form-label">Prioridad</label>
+            <select class="form-control" id="objectivePriority">
+              <option value="1">Alta (1)</option>
+              <option value="2">Media (2)</option>
+              <option value="3">Baja (3)</option>
+            </select>
+          </div>
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-add">
+              <i class="fas fa-save"></i>
+              Guardar Objetivo
+            </button>
+            <button type="button" class="btn btn-secondary btn-custom" onclick="cancelAddObjective()">
+              <i class="fas fa-times"></i>
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Add Button -->
+      <div class="text-center mt-3">
+        <button class="btn btn-add" id="showAddFormBtn" onclick="showAddObjectiveForm()">
+          <i class="fas fa-plus"></i>
+          Agregar Objetivo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+  <script>
+    // Estado de la aplicación
+    let objectives = [];
+    let editingId = null;
+
+    // Inicializar la aplicación
+    document.addEventListener('DOMContentLoaded', function () {
+      updateCurrentDate();
+      loadObjectives();
+      initializeSortable();
+    });
+
+    // Actualizar fecha actual
+    function updateCurrentDate() {
+      const now = new Date();
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      document.getElementById('currentDate').textContent =
+        now.toLocaleDateString('es-ES', options);
+    }
+
+    // Cargar objetivos del almacenamiento local
+    function loadObjectives() {
+      const today = new Date().toDateString();
+      const savedObjectives = localStorage.getItem(`objectives_${today}`);
+
+      if (savedObjectives) {
+        objectives = JSON.parse(savedObjectives);
+      } else {
+        objectives = [];
+      }
+
+      renderObjectives();
+      updateProgress();
+    }
+
+    // Guardar objetivos en almacenamiento local
+    function saveObjectives() {
+      const today = new Date().toDateString();
+      localStorage.setItem(`objectives_${today}`, JSON.stringify(objectives));
+    }
+
+    // Renderizar lista de objetivos
+    function renderObjectives() {
+      const container = document.getElementById('objectivesList');
+
+      if (objectives.length === 0) {
+        container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h4>¡Comienza tu día!</h4>
+                        <p>Agrega hasta 3 objetivos para mantener tu día enfocado y productivo.</p>
+                    </div>
+                `;
+        return;
+      }
+
+      // Ordenar por prioridad
+      const sortedObjectives = [...objectives].sort((a, b) => a.priority - b.priority);
+
+      container.innerHTML = sortedObjectives.map(objective => `
+                <div class="objective-card ${objective.completed ? 'completed' : ''}" data-id="${objective.id}">
+                    <div class="priority-badge priority-${objective.priority}">${objective.priority}</div>
+                    <i class="fas fa-grip-vertical drag-handle"></i>
+                    <div class="objective-title">${objective.title}</div>
+                    ${objective.description ? `<div class="objective-description">${objective.description}</div>` : ''}
+                    <div class="objective-actions">
+                        <button class="btn btn-complete btn-custom btn-sm" onclick="toggleComplete(${objective.id})">
+                            <i class="fas ${objective.completed ? 'fa-undo' : 'fa-check'}"></i>
+                            ${objective.completed ? 'Desmarcar' : 'Completar'}
+                        </button>
+                        <button class="btn btn-edit btn-custom btn-sm" onclick="editObjective(${objective.id})">
+                            <i class="fas fa-edit"></i>
+                            Editar
+                        </button>
+                        <button class="btn btn-delete btn-custom btn-sm" onclick="deleteObjective(${objective.id})">
+                            <i class="fas fa-trash"></i>
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+    }
+
+    // Inicializar funcionalidad de arrastrar y soltar
+    function initializeSortable() {
+      const container = document.getElementById('objectivesList');
+      new Sortable(container, {
+        handle: '.drag-handle',
+        animation: 150,
+        ghostClass: 'sortable-ghost',
+        onEnd: function (evt) {
+          const movedObjective = objectives.splice(evt.oldIndex, 1)[0];
+          objectives.splice(evt.newIndex, 0, movedObjective);
+          saveObjectives();
+        }
+      });
+    }
+
+    // Mostrar formulario de agregar objetivo
+    function showAddObjectiveForm() {
+      if (objectives.length >= 3) {
+        alert('Solo puedes tener hasta 3 objetivos diarios. Completa o elimina alguno para agregar más.');
+        return;
+      }
+
+      document.getElementById('addObjectiveForm').style.display = 'block';
+      document.getElementById('showAddFormBtn').style.display = 'none';
+      document.getElementById('objectiveTitle').focus();
+    }
+
+    // Cancelar agregar objetivo
+    function cancelAddObjective() {
+      document.getElementById('addObjectiveForm').style.display = 'none';
+      document.getElementById('showAddFormBtn').style.display = 'inline-block';
+      document.getElementById('objectiveForm').reset();
+      editingId = null;
+    }
+
+    // Manejar envío del formulario
+    document.getElementById('objectiveForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById('objectiveTitle').value.trim();
+      const description = document.getElementById('objectiveDescription').value.trim();
+      const priority = parseInt(document.getElementById('objectivePriority').value);
+
+      if (!title) {
+        alert('El título del objetivo es obligatorio');
+        return;
+      }
+
+      if (editingId) {
+        // Editar objetivo existente
+        const index = objectives.findIndex(obj => obj.id === editingId);
+        if (index !== -1) {
+          objectives[index] = {
+            ...objectives[index],
+            title,
+            description,
+            priority
+          };
+        }
+        editingId = null;
+      } else {
+        // Agregar nuevo objetivo
+        const newObjective = {
+          id: Date.now(),
+          title,
+          description,
+          priority,
+          completed: false,
+          createdAt: new Date().toISOString()
+        };
+        objectives.push(newObjective);
+      }
+
+      saveObjectives();
+      renderObjectives();
+      updateProgress();
+      cancelAddObjective();
+    });
+
+    // Alternar completado
+    function toggleComplete(id) {
+      const objective = objectives.find(obj => obj.id === id);
+      if (objective) {
+        objective.completed = !objective.completed;
+        saveObjectives();
+        renderObjectives();
+        updateProgress();
+      }
+    }
+
+    // Editar objetivo
+    function editObjective(id) {
+      const objective = objectives.find(obj => obj.id === id);
+      if (objective) {
+        editingId = id;
+        document.getElementById('objectiveTitle').value = objective.title;
+        document.getElementById('objectiveDescription').value = objective.description || '';
+        document.getElementById('objectivePriority').value = objective.priority;
+        showAddObjectiveForm();
+      }
+    }
+
+    // Eliminar objetivo
+    function deleteObjective(id) {
+      if (confirm('¿Estás seguro de que quieres eliminar este objetivo?')) {
+        objectives = objectives.filter(obj => obj.id !== id);
+        saveObjectives();
+        renderObjectives();
+        updateProgress();
+      }
+    }
+
+    // Actualizar progreso
+    function updateProgress() {
+      const completed = objectives.filter(obj => obj.completed).length;
+      const total = objectives.length;
+      const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+      const progressCircle = document.getElementById('progressCircle');
+      const progressText = document.getElementById('progressText');
+
+      const angle = (percentage / 100) * 360;
+      progressCircle.style.setProperty('--progress-angle', `${angle}deg`);
+      progressText.textContent = `${percentage}%`;
+    }
+
+    // Función para transferir objetivos no completados al día siguiente
+    function transferUncompletedObjectives() {
+      const uncompleted = objectives.filter(obj => !obj.completed);
+      if (uncompleted.length > 0) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const tomorrowKey = `objectives_${tomorrow.toDateString()}`;
+
+        const confirmTransfer = confirm(
+          `Tienes ${uncompleted.length} objetivo(s) sin completar. ¿Quieres transferirlos al día siguiente?`
+        );
+
+        if (confirmTransfer) {
+          localStorage.setItem(tomorrowKey, JSON.stringify(uncompleted));
+          alert('Objetivos transferidos al día siguiente');
+        }
+      }
+    }
+
+    // Revisar progreso al final del día (simulado con botón)
+    function reviewProgress() {
+      const completed = objectives.filter(obj => obj.completed).length;
+      const total = objectives.length;
+
+      let message = `Resumen del día:\n`;
+      message += `Objetivos completados: ${completed}/${total}\n`;
+      message += `Porcentaje de éxito: ${total > 0 ? Math.round((completed / total) * 100) : 0}%\n\n`;
+
+      if (completed === total && total > 0) {
+        message += '¡Excelente trabajo! Completaste todos tus objetivos. 🎉';
+      } else if (completed > 0) {
+        message += '¡Buen progreso! Sigue así mañana. 💪';
+      } else {
+        message += 'Mañana será un mejor día. ¡No te rindas! 🌟';
+      }
+
+      alert(message);
+      transferUncompletedObjectives();
+    }
+
+    // Agregar botón de revisión de progreso al final del día
+    setTimeout(() => {
+      const container = document.querySelector('.glass-container');
+      const reviewBtn = document.createElement('div');
+      reviewBtn.className = 'text-center mt-3';
+      reviewBtn.innerHTML = `
+                <button class="btn btn-outline-secondary btn-custom" onclick="reviewProgress()">
+                    <i class="fas fa-chart-line"></i>
+                    Revisar Progreso del Día
+                </button>
+            `;
+      container.appendChild(reviewBtn);
+    }, 1000);
+  </script>
+</body>
+
+</html>
