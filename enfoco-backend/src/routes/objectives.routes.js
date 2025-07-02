@@ -2,10 +2,10 @@ import express from 'express';
 import { Op } from 'sequelize';
 import { Objective } from '../models/Objective.js';
 
-const router = express.Router();
+const routerObjective = express.Router();
 
 // GET /api/objectives/today
-router.get('/today', async (req, res) => {
+routerObjective.get('/today', async (req, res) => {
     try {
         const today = new Date().toISOString().split('T')[0];
         const objectives = await Objective.findAll({
@@ -22,7 +22,7 @@ router.get('/today', async (req, res) => {
 });
 
 // POST /api/objectives
-router.post('/', async (req, res) => {
+routerObjective.post('/', async (req, res) => {
     try {
         const { title, description, priority } = req.body;
         const today = new Date().toISOString().split('T')[0];
@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT /api/objectives/:id
-router.put('/:id', async (req, res) => {
+routerObjective.put('/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const updates = req.body;
@@ -70,7 +70,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE /api/objectives/:id
-router.delete('/:id', async (req, res) => {
+routerObjective.delete('/:id', async (req, res) => {
     try {
         await Objective.destroy({
             where: { id: req.params.id, userId: req.user.id }
@@ -81,4 +81,4 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-export default router;
+export default routerObjective;
