@@ -1,0 +1,408 @@
+/* --- Variables --- */
+:root {
+  --navy: #2F4156;
+  --teal: #567C8D;
+  --sky-blue: #C8D9E6;
+  --beige: #F5EFEB;
+  --white: #FFFFFF;
+  --dark-navy: #1f2a38; /* Nuevo: un tono más oscuro de navy para sombras y detalles */
+  --light-teal: #8cbacb; /* Nuevo: un tono más claro de teal para efectos */
+}
+
+/* --- Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Body --- */
+body {
+  background-color: var(--beige);
+  color: var(--navy);
+  display: flex;
+  flex-direction: column; /* Asegura que el cuerpo sea un contenedor flex de columna */
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+  line-height: 1.6;
+}
+h1{
+  font-family: 'PixelCode';
+}
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--navy) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+
+.navbar-brand {
+  font-size: 2rem; /* Un poco más grande */
+  color: var(--sky-blue) !important;
+  font-weight: 700; /* Más negrita */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: var(--white) !important; /* Cambia de color al pasar el ratón */
+}
+
+.nav-link {
+  color: var(--white) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--sky-blue) !important;
+  background-color: rgba(255, 255, 255, 0.1); /* Ligero fondo al pasar el ratón */
+}
+
+/* --- Botones Generales (incluye .custom-btn-lg) --- */
+.btn-info,
+.custom-btn-lg {
+  background-color: var(--teal);
+  color: var(--white);
+  border: none;
+  border-radius: 50px; /* Más redondeado para un look moderno */
+  padding: 1rem 2.5rem; /* Un poco más de padding */
+  font-weight: bold;
+  font-size: 1.2rem; /* Un poco más grande */
+  text-decoration: none;
+  display: inline-block; /* Para asegurar que el padding y tamaño funcionen bien */
+  transition: all 0.3s ease; /* Transición para todas las propiedades */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.btn-info:hover,
+.custom-btn-lg:hover {
+  background-color: var(--navy);
+  transform: translateY(-3px); /* Efecto de "levantar" al pasar el ratón */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el ratón */
+  color: var(--white);
+}
+/* login general*/
+/* --- Estilo general para el login --- */
+.custom-login-body {
+  background: linear-gradient(to bottom, var(--beige), var(--sky-blue));
+  color: var(--navy);
+}
+
+/* --- Tarjeta del formulario de login --- */
+.login-card {
+  background-color: var(--white);
+  border: 1px solid var(--teal);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Título del login --- */
+.login-card h2 {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* --- Inputs del login --- */
+.login-card .form-control {
+  background-color: var(--sky-blue);
+  border: 1px solid var(--teal);
+  border-radius: 10px;
+  color: var(--navy);
+}
+
+.login-card .form-control:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 0.2rem rgba(47, 65, 86, 0.25); /* navy transparente */
+}
+
+/* --- Etiquetas de los inputs --- */
+.login-card .form-label {
+  color: var(--dark-navy);
+  font-weight: 500;
+}
+
+/* --- Botón estilizado para login --- */
+.styled-button {
+  position: relative;
+  background-color: var(--teal);
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  gap: 10px;
+  text-align: center;
+}
+
+.styled-button:hover {
+  background-color: var(--navy);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  color: var(--white);
+}
+
+.inner-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.styled-button .icon {
+  height: 24px;
+  width: 24px;
+  transition: transform 0.3s ease;
+  margin-left: 5px;
+}
+
+.styled-button:hover .icon {
+  transform: translateX(5px);
+}
+
+/* --- Main Section (Contenido principal del index) --- */
+.main-content-index { /* Nueva clase para el main del index.html */
+  padding: 60px 20px; /* Más padding para espacio */
+  background: linear-gradient(to bottom, var(--beige) 70%, var(--sky-blue) 100%); /* Degradado suave */
+  border-bottom-left-radius: 50px; /* Curvas en la parte inferior */
+  border-bottom-right-radius: 50px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+.custom-title {
+  color: var(--navy);
+  font-size: 3.5rem; /* Título más grande y con impacto */
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-subtitle {
+  color: var(--teal);
+  font-size: 1.4rem; /* Subtítulo más legible */
+  max-width: 800px; /* Limita el ancho para mejor lectura */
+  margin: 0 auto 2.5rem auto; /* Centra y añade más margen inferior */
+}
+
+/* --- Sección de Funcionalidades (Cards) --- */
+.section-features { /* Nueva clase para la sección de cards */
+  padding-bottom: 50px; /* Espacio inferior */
+}
+
+.card {
+  background-color: var(--sky-blue);
+  color: var(--navy); /* Texto en navy para contraste */
+  border: 1px solid var(--teal);
+  border-radius: 15px; /* Bordes más suaves */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más definida */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Para asegurar que el contenido no se salga con los bordes redondeados */
+  position: relative; /* Para posibles efectos internos */
+}
+
+.card:hover {
+  transform: translateY(-8px); /* Mayor efecto de elevación */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.card-body {
+  padding: 30px; /* Más padding dentro de la tarjeta */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card-body .fa-2x {
+  color: var(--teal); /* Iconos en color teal */
+  font-size: 3.5rem; /* Iconos más grandes */
+  margin-bottom: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover .card-body .fa-2x {
+  color: var(--navy); /* Cambio de color en el icono al pasar el ratón */
+  transform: scale(1.1); /* Efecto de zoom en el icono */
+}
+
+.card-title {
+  color: var(--navy); /* Título de la tarjeta en navy */
+  font-size: 1.8rem; /* Título de la tarjeta más grande */
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  color: var(--dark-navy); /* Texto de la tarjeta en un navy más oscuro */
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* --- Footer (Aún no tienes uno, pero es bueno dejar el espacio) --- */
+.custom-footer {
+  background-color: var(--navy);
+  color: var(--sky-blue);
+  padding: 25px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: auto; /* Empuja el footer hacia abajo */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Sombra superior */
+}
+
+
+/* --- Otras secciones (mantenemos tus estilos existentes pero las ajustamos ligeramente) --- */
+
+/* Calendario */
+.table th,
+.table td {
+  height: 80px;
+  vertical-align: middle;
+  font-size: 1.1rem; /* Ligeramente más grande */
+  background-color: var(--sky-blue);
+  border: 1px solid var(--teal); /* Borde con color de variable */
+  color: var(--navy); /* Color de texto para el contenido de la tabla */
+}
+
+.table th {
+  background-color: var(--teal);
+  color: var(--white);
+  font-weight: bold;
+}
+
+/* Mapa de energía */
+.energy-map td {
+  cursor: pointer;
+  background-color: var(--sky-blue);
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Añadimos transform a la transición */
+}
+
+.energy-map td:hover {
+  transform: scale(1.05); /* Ligerísimo zoom al pasar el ratón */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.energy-low {
+  background-color: var(--teal) !important;
+  color: var(--white);
+}
+
+.energy-medium {
+  background-color: var(--sky-blue) !important;
+  color: var(--navy);
+}
+
+.energy-high {
+  background-color: var(--navy) !important;
+  color: var(--white);
+}
+
+/* Objetivos y tareas */
+.list-group-item {
+  background-color: var(--sky-blue);
+  color: var(--navy);
+  border: 1px solid var(--teal);
+  border-radius: 8px; /* Ligeramente redondeado */
+  margin-bottom: 10px; /* Espacio entre ítems */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px; /* Más padding */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: var(--light-teal); /* Un color más claro al pasar el ratón */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.objetivo-completado,
+.tarea-completada {
+  text-decoration: line-through;
+  color: #8a9bab;
+  font-style: italic; /* Para que se vea diferente al completado */
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Media Queries (ajustadas para los nuevos tamaños de fuente) */
+@media (max-width: 992px) {
+  .custom-title {
+    font-size: 2.8rem;
+  }
+  .custom-subtitle {
+    font-size: 1.2rem;
+  }
+  .card-title {
+    font-size: 1.6rem;
+  }
+  .card-body .fa-2x {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-title {
+    font-size: 2.2rem;
+  }
+  .custom-subtitle {
+    font-size: 1.1rem;
+  }
+  .card-title {
+    font-size: 1.4rem;
+  }
+  .card-text {
+    font-size: 1rem;
+  }
+  .card-body .fa-2x {
+    font-size: 2.5rem;
+  }
+  .custom-btn-lg {
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+  }
+  .navbar-brand {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-title {
+    font-size: 1.8rem;
+  }
+  .custom-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .custom-btn-lg {
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+  }
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+  .card-body .fa-2x {
+    font-size: 2rem;
+  }
+  .card-title {
+    font-size: 1.2rem;
+  }
+}
