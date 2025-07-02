@@ -33,5 +33,5 @@ const User = sequelize.define('User', {
     timestamps: true // esto añade automáticamente createdAt y updatedAt
 });
 
-
+// Este archivo define el modelo de datos 'User' para Sequelize.
 export default User;
