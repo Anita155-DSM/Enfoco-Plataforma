@@ -4,15 +4,15 @@ import { createObjective, deleteObjetive, getTodayObjectives, updateObjective } 
 const routerObjective = express.Router();
 
 // GET /api/objectives/today
-routerObjective.get('/today', getTodayObjectives); 
+routerObjective.get('/objetivos/today', getTodayObjectives); 
 
 // POST /api/objectives
-routerObjective.post('/', createObjective);
+routerObjective.post('/objetivos', createObjective);
 
 // PUT /api/objectives/:id
-routerObjective.put('/:id', updateObjective);
+routerObjective.put('/objetivos/:id', updateObjective);
 
 // DELETE /api/objectives/:id
-routerObjective.delete('/:id', deleteObjetive);
+routerObjective.delete('/objetivos/:id', deleteObjetive);
 
 export default routerObjective;
