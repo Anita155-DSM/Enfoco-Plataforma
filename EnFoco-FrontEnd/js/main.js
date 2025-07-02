@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Redirigir al usuario a la página de dashboard u otra página después del login exitoso
                     // Asegúrate de que la ruta sea correcta, ej. /EnFoco-FrontEnd/dashboard.html
-                    window.location.href = '/EnFoco-FrontEnd/dashboard.html'; 
+                    window.location.href = '/EnFoco-FrontEnd/indexUser.html'; 
                 } else {
                     // Si la respuesta no es 2xx (ej. 400 Bad Request, 401 Unauthorized)
                     console.error('Error de login:', data.message);
