@@ -8,47 +8,61 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/EnFoco-FrontEnd/cs/style.css">
 </head>
-<body class="bg-dark text-light d-flex align-items-center justify-content-center vh-100">
+<body class="custom-login-body d-flex flex-column min-vh-100">
 
-  <div class="card p-5 bg-black shadow" style="width: 100%; max-width: 400px;">
-    <h2 class="text-info text-center mb-4">Iniciar Sesión</h2>
-    <form id="loginForm">
-      <div class="mb-4">
-        <label for="usuario" class="form-label">Usuario</label>
-        <input type="text" class="form-control" id="usuario" required>
-      </div>
-      <div class="mb-4">
-        <label for="clave" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="clave" required>
-      </div>
-      <!-- extraido de la pag: Uiverse.io by elijahgummer --> 
-<button class="styled-button">
-  ¡Registrate ahora!
-  <div class="inner-button">
-    <svg
-      id="Arrow"
-      viewBox="0 0 32 32"
-      xmlns="http://www.w3.org/2000/svg"
-      height="30px"
-      width="30px"
-      class="icon"
-    >
-      <defs>
-        <linearGradient y2="100%" x2="100%" y1="0%" x1="0%" id="iconGradient">
-          <stop style="stop-color:#FFFFFF;stop-opacity:1" offset="0%"></stop>
-          <stop style="stop-color:#AAAAAA;stop-opacity:1" offset="100%"></stop>
-        </linearGradient>
-      </defs>
-      <path
-        fill="url(#iconGradient)"
-        d="M4 15a1 1 0 0 0 1 1h19.586l-4.292 4.292a1 1 0 0 0 1.414 1.414l6-6a.99.99 0 0 0 .292-.702V15c0-.13-.026-.26-.078-.382a.99.99 0 0 0-.216-.324l-6-6a1 1 0 0 0-1.414 1.414L24.586 14H5a1 1 0 0 0-1 1z"
-      ></path>
-    </svg>
-  </div>
-</button>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg custom-navbar px-4">
+    <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/indexUser.html">EnFoco</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/index.html">Inicio</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    </form>
-  </div>
+  <!-- CONTENIDO -->
+  <main class="flex-grow-1 d-flex align-items-center justify-content-center py-5">
+    <div class="card login-card p-5 shadow" style="width: 100%; max-width: 400px;">
+      <h2 class="text-info text-center mb-4">Iniciar Sesión</h2>
+      <form id="loginForm">
+        <div class="mb-4">
+          <label for="usuario" class="form-label">Usuario</label>
+          <input type="text" class="form-control" id="usuario" required>
+        </div>
+        <div class="mb-4">
+          <label for="clave" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="clave" required>
+        </div>
+
+        <button type="submit" class="styled-button w-100 mb-3">
+          Iniciar sesión
+          <div class="inner-button">
+            <svg id="Arrow" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" class="icon">
+              <path fill="url(#iconGradient)" d="M4 15a1 1 0 0 0 1 1h19.586l-4.292 4.292a1 1 0 0 0 1.414 1.414l6-6a.99.99 0 0 0 .292-.702V15c0-.13-.026-.26-.078-.382a.99.99 0 0 0-.216-.324l-6-6a1 1 0 0 0-1.414 1.414L24.586 14H5a1 1 0 0 0-1 1z" />
+              <defs>
+                <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#AAAAAA;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </button>
+
+        <p class="text-center mt-3" style="color: var(--navy); font-weight: 500;">
+          ¿No tenés cuenta? <a href="/EnFoco-FrontEnd/registro.html" style="color: var(--teal); text-decoration: underline;">Registrate</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="custom-footer">
+    <p>&copy; 2025 EnFoco. Todos los derechos reservados.</p>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/EnFoco-FrontEnd/js/main.js"></script>
