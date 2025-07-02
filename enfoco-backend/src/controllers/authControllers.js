@@ -2,6 +2,7 @@ import User from '../models/User.js';
 import crypto from 'crypto';
 import { Op } from 'sequelize';
 import bcrypt from 'bcryptjs'; 
+import jwt from 'jsonwebtoken';
 import { sendVerificationEmail } from '../config/nodemailConfig.js';
 //funciona perrooooo
 const registerUser = async (req, res) => {
@@ -12,9 +13,6 @@ const registerUser = async (req, res) => {
         if (!username || !email || !password) {
             return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
         }
-
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
 
 
         let user = await User.findOne({ where: { email } });
@@ -99,7 +97,7 @@ const loginUser = async (req, res) => {
         const user = await User.findOne({ 
             where: { 
                 [Op.or]:[// Esto dice: busca si el 'identifier' es el email O el username
-                   { email: identifier },
+                   {email: identifier },
                    {username: identifier}
             ]
          }
