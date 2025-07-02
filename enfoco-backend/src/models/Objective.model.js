@@ -31,10 +31,6 @@ export const Objective = objectiveSequelize.define('Objective', {
         allowNull: false
     },
     userId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'Users',
-            key: 'id'
+        type: DataTypes.INTEGER
         }
-    }
 });

@@ -1,6 +1,6 @@
 import express from 'express';
 import { Op } from 'sequelize';
-import { Objective } from '../models/Objective.js';
+import { Objective } from '../models/Objective.model.js';
 
 const routerObjective = express.Router();
 
