@@ -1,30 +1,40 @@
 import { DataTypes } from "sequelize";
-import { objectiveSequelize } from "../config/objectives.database";
+import { objectiveSequelize } from "../config/objectives.database.js";
 
-const Objetivos = objectiveSequelize.define(
-    "Objetivos",
-    {
-        titulo: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        descripcion: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-        },
-        prioridad: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        completado: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-        },
-        fecha: {
-            type: DataTypes.DATEONLY,
-            allowNull: false,
+export const Objective = objectiveSequelize.define('Objective', {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    title: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+    description: {
+        type: DataTypes.TEXT
+    },
+    priority: {
+        type: DataTypes.INTEGER,
+        defaultValue: 1,
+        validate: {
+            min: 1,
+            max: 3
+        }
+    },
+    completed: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    },
+    date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
+    },
+    userId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Users',
+            key: 'id'
         }
     }
-);
-
-export default Objetivos;
+});
