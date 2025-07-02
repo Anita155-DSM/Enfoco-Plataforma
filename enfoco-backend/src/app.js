@@ -10,7 +10,7 @@ app.use(cors());
 
 
 app.get('/', (req, res) => {
-    res.send('API de EnFoco funcionando (versión para estudiantes de primer año)!');
+    res.send('API de EnFoco funcionando!');
 });
 
 export default app;
