@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (user === "Usuario" && pass === "1234") {
         alert("¡Bienvenidx, Usuario!");
-        window.location.href = "dashboard.html";
+        window.location.href = "indexUser.html";
       } else {
         alert("Usuario o contraseña incorrectos.");
       }
