@@ -15,8 +15,7 @@
     rel="stylesheet">
 </head>
 
-<body class="custom-body d-flex flex-column min-vh-100">
-
+<body class="custom-body d-flex flex-column min-vh-100" id="bodyIndex">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg custom-navbar px-4">
     <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/index.html">
@@ -36,8 +35,7 @@
   </nav>
 
   <!-- Contenido principal -->
-  <main
-    class="container text-center mt-4 flex-grow-1 d-flex flex-column justify-content-center align-items-center main-content-index">
+  <main class="container text-center mt-4 flex-grow-1 d-flex flex-column justify-content-center align-items-center main-content-index bg-transparent" id="indexMain">
     <h1 class="display-4 fw-bold custom-title mb-3 fade-in">¡Bienvenido a EnFoco!</h1>
     <p class="lead mb-4 custom-subtitle fade-in" style="animation-delay: 0.3s;">
       Gestioná tu tiempo, optimizá tus tareas y aumentá tu productividad. Descubrí todas las funcionalidades pensadas
@@ -80,7 +78,7 @@
       </div>
 
       <div class="col fade-in card-mindfulness" style="animation-delay: 1.5s;">
-        <div class="card h-100 text-light border-info shadow-sm card-mindfulness-inner">
+        <div class="card h-100 text-light border-info shadow-sm card-mindfulness-inner" id="tecnicasCard">
           <div class="card-body">
             <i class="fa-solid fa-brain fa-2x text-info mb-3"></i>
             <h5 class="card-title text-info">Técnicas de enfoque</h5>
@@ -91,7 +89,7 @@
       </div>
 
       <div class="col fade-in card-energy" style="animation-delay: 1.8s;">
-        <div class="card h-100 text-light border-info shadow-sm card-energy-inner">
+        <div class="card h-100 text-light border-info shadow-sm card-energy-inner" id="energiaCard">
           <div class="card-body">
             <i class="fa-solid fa-bolt fa-2x text-info mb-3"></i>
             <h5 class="card-title text-info">Mapa de energía</h5>

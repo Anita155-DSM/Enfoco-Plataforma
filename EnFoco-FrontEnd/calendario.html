@@ -1,46 +1,189 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EnFoco - En proceso</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/EnFoco-FrontEnd/cs/style.css" />
-</head>
-<body class="custom-body d-flex flex-column min-vh-100">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnFoco | Calendario Inteligente</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg custom-navbar px-4">
-    <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/calendario.html">
-    <img src="/EnFoco-FrontEnd/assets/img/Foco-EnFoco.png" alt="Logo EnFoco" class="navbar-logo">
-    EnFoco
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary px-4">
+    <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/dashboard.html">
+      <img src="/EnFoco-FrontEnd/assets/img/Foco-EnFoco.png" alt="Logo EnFoco" class="navbar-logo">
+      EnFoco
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/indexUser.html">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/tareas.html">Tareas</a></li>
-        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/calendario.html">Calendario</a></li>
-        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/objetivos.html">Objetivos</a></li>
-        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/energia.html">Mapa de energía</a></li>
+        <li class="nav-item"><a class="nav-link" href="/EnFoco-FrontEnd/indexUser.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/EnFoco-FrontEnd/tareasRuleta.html">Ruleta de elección</a></li>
+        <li class="nav-item"><a class="nav-link" href="/EnFoco-FrontEnd/calendario.html">Calendario</a></li>
+        <li class="nav-item"><a class="nav-link" href="/EnFoco-FrontEnd/objetivos.html">Objetivos</a></li>
+        <li class="nav-item"><a class="nav-link custom-nav-link" href="/EnFoco-FrontEnd/energia.html">Mapa de
+            energía</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Contenido principal -->
-  <main class="container text-center flex-grow-1 d-flex flex-column justify-content-center align-items-center">
-    <h1 class="display-4 fw-bold custom-title mb-3">Sitio en proceso</h1>
-    <p class="lead mb-4 custom-subtitle">Estamos trabajando en nuevas funcionalidades. ¡Volvé pronto!</p>
-    <a href="/EnFoco-FrontEnd/indexUser.html" class="custom-btn-lg mb-4">Ir al inicio</a>
-    <img src="/EnFoco-FrontEnd/assets/img/yo-constructor.png" alt="En proceso" style="max-width: 300px; width: 100%; height: auto;" />
-  </main>
-  <footer class="custom-footer">
-    <p>&copy; 2025 EnFoco. Todos los derechos reservados.</p>
-  </footer>
+  <div class="calendar-card">
+    <h2 class="text-center mb-4">📅 Calendario Inteligente</h2>
 
+    <form id="eventForm" class="row g-3 mb-4">
+      <div class="col-md-4">
+        <input type="text" class="form-control" id="name" placeholder="Nombre de la actividad" required>
+      </div>
+      <div class="col-md-2">
+        <input type="date" class="form-control" id="date" required>
+      </div>
+      <div class="col-md-2">
+        <input type="time" class="form-control" id="time" required>
+      </div>
+      <div class="col-md-1">
+        <input type="number" class="form-control" id="duration" placeholder="min" min="5" required>
+      </div>
+      <div class="col-md-2">
+        <select class="form-select" id="category" required>
+          <option value="">Categoría</option>
+          <option value="Examen">Examen</option>
+          <option value="Clase">Clase</option>
+          <option value="Estudio">Estudio</option>
+          <option value="Personal">Personal</option>
+        </select>
+      </div>
+      <div class="col-md-1">
+        <select class="form-select" id="priority">
+          <option value="">🎯</option>
+          <option value="Alta">Alta</option>
+          <option value="Media">Media</option>
+          <option value="Baja">Baja</option>
+        </select>
+      </div>
+      <div class="col-12 d-grid d-md-flex justify-content-end gap-2">
+        <button type="submit" class="btn btn-success">Agregar</button>
+        <button type="button" class="btn btn-outline-info" onclick="verPorFecha()">Ver día</button>
+      </div>
+    </form>
+
+    <div id="eventList"></div>
+  </div>
+
+  <!-- Modal de confirmación para eliminar -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar eliminación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que querés eliminar esta actividad?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const eventForm = document.getElementById("eventForm");
+    const eventList = document.getElementById("eventList");
+    let events = JSON.parse(localStorage.getItem("calendarioEnFoco")) || [];
+    let eventToDelete = null;
+
+    function renderEvents(list = events) {
+      eventList.innerHTML = "";
+      if (list.length === 0) {
+        eventList.innerHTML = "<p class='text-center text-muted'>No hay actividades aún.</p>";
+        return;
+      }
+      list.forEach((ev, i) => {
+        const div = document.createElement("div");
+        div.className = `event-item border ${getPriorityColor(ev.priority)}`;
+        div.innerHTML = `
+          <strong>${ev.name}</strong> - ${ev.date} ${ev.time} (${ev.duration} min)<br>
+          <span class="category-label">${ev.category}</span>
+          <span class="badge bg-secondary">${ev.priority}</span>
+          <div class="mt-2">
+            <button class="btn btn-sm btn-outline-primary me-1" onclick="editEvent(${i})">Editar</button>
+            <button class="btn btn-sm btn-outline-danger" onclick="confirmDelete(${i})">Eliminar</button>
+          </div>
+        `;
+        eventList.appendChild(div);
+      });
+    }
+
+    function getPriorityColor(priority) {
+      switch (priority) {
+        case "Alta": return "border-danger";
+        case "Media": return "border-warning";
+        case "Baja": return "border-success";
+        default: return "border-secondary";
+      }
+    }
+
+    eventForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const duration = document.getElementById("duration").value;
+      const category = document.getElementById("category").value;
+      const priority = document.getElementById("priority").value;
+
+      const newEvent = { name, date, time, duration, category, priority };
+      events.push(newEvent);
+      localStorage.setItem("calendarioEnFoco", JSON.stringify(events));
+      eventForm.reset();
+      renderEvents();
+    });
+
+    function editEvent(index) {
+      const ev = events[index];
+      document.getElementById("name").value = ev.name;
+      document.getElementById("date").value = ev.date;
+      document.getElementById("time").value = ev.time;
+      document.getElementById("duration").value = ev.duration;
+      document.getElementById("category").value = ev.category;
+      document.getElementById("priority").value = ev.priority;
+
+      events.splice(index, 1);
+      localStorage.setItem("calendarioEnFoco", JSON.stringify(events));
+      renderEvents();
+    }
+
+    function confirmDelete(index) {
+      eventToDelete = index;
+      const modal = new bootstrap.Modal(document.getElementById("confirmDeleteModal"));
+      modal.show();
+    }
+
+    document.getElementById("confirmDeleteBtn").addEventListener("click", () => {
+      if (eventToDelete !== null) {
+        events.splice(eventToDelete, 1);
+        localStorage.setItem("calendarioEnFoco", JSON.stringify(events));
+        renderEvents();
+      }
+      const modal = bootstrap.Modal.getInstance(document.getElementById("confirmDeleteModal"));
+      modal.hide();
+    });
+
+    function verPorFecha() {
+      const fecha = prompt("¿Qué fecha querés ver? (AAAA-MM-DD)");
+      if (!fecha) return;
+      const filtrados = events.filter(e => e.date === fecha);
+      renderEvents(filtrados);
+    }
+
+    renderEvents();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/EnFoco-FrontEnd/js/main.js"></script>
 </body>
+
 </html>
