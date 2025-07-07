@@ -1,261 +1,414 @@
+/* --- Definición para Bitcount Grid Double --- */
+/* Asegúrate de que la ruta URL sea correcta según donde guardaste el archivo TTF */
+@font-face {
+    font-family: 'Bitcount Grid Double'; /* Este es el nombre que usarás en font-family */
+    src: url('../assets/fonts/BitcountGridDouble-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* --- Variables --- */
 :root {
-  --navy: #2F4156;
-  --teal: #567C8D;
-  --sky-blue: #C8D9E6;
-  --beige: #F5EFEB;
-  --white: #FFFFFF;
-  --dark-navy: #1f2a38; /* Nuevo: un tono más oscuro de navy para sombras y detalles */
-  --light-teal: #8cbacb; /* Nuevo: un tono más claro de teal para efectos */
+    --navy: #2F4156;
+    --teal: #567C8D;
+    --sky-blue: #C8D9E6;
+    --beige: #F5EFEB;
+    --white: #FFFFFF;
+    --dark-navy: #1f2a38; /* Nuevo: un tono más oscuro de navy para sombras y detalles */
+    --light-teal: #8cbacb; /* Nuevo: un tono más claro de teal para efectos */
+    --accent-blue: #4A90E2; /* Nuevo: para acentos y elementos interactivos */
 }
 
 /* --- Reset --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* --- Body --- */
 body {
-  background-color: var(--beige);
-  color: var(--navy);
-  display: flex;
-  flex-direction: column; /* Asegura que el cuerpo sea un contenedor flex de columna */
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
-  line-height: 1.6;
+    background-color: var(--beige);
+    color: var(--navy);
+    display: flex;
+    flex-direction: column; /* Asegura que el cuerpo sea un contenedor flex de columna */
+    min-height: 100vh;
+    /* Aplica una fuente pixelada a todo el cuerpo, si te gusta la legibilidad general */
+    font-family: 'Pixelify Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
 }
-h1{
-  font-family: 'PixelCode';
+
+/* Modificamos el h1 para usar Press Start 2P */
+h1 {
+    font-family: 'Press Start 2P', cursive; /* cursive es un buen fallback para fuentes pixeladas */
 }
+
 /* --- Navbar --- */
 .navbar {
-  background-color: var(--navy) !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    background-color: var(--navy) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para profundidad */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .navbar-brand {
-  font-size: 2rem; /* Un poco más grande */
-  color: var(--sky-blue) !important;
-  font-weight: 700; /* Más negrita */
-  letter-spacing: 1px; /* Espaciado entre letras */
-  transition: color 0.3s ease;
+    font-size: 2.2rem; /* Un poco más grande */
+    color: var(--sky-blue) !important;
+    font-weight: 700; /* Más negrita */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    transition: color 0.3s ease;
+    font-family: 'VT323', monospace; /* Fuente pixelada para el nombre de la marca */
 }
 
 .navbar-brand:hover {
-  color: var(--white) !important; /* Cambia de color al pasar el ratón */
+    color: var(--white) !important; /* Cambia de color al pasar el ratón */
+    transform: scale(1.02); /* Ligero zoom */
 }
 
 .nav-link {
-  color: var(--white) !important;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--white) !important;
+    font-weight: 500;
+    padding: 0.7rem 1.2rem; /* Más padding */
+    border-radius: 8px; /* Más redondeado */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-family: 'Pixelify Sans', sans-serif; /* Puedes aplicar Pixelify Sans aquí también */
 }
 
 .nav-link:hover {
-  color: var(--sky-blue) !important;
-  background-color: rgba(255, 255, 255, 0.1); /* Ligero fondo al pasar el ratón */
+    color: var(--sky-blue) !important;
+    background-color: rgba(255, 255, 255, 0.15); /* Ligero fondo al pasar el ratón */
+    transform: translateY(-2px); /* Efecto de "levantar" */
 }
 
 /* --- Botones Generales (incluye .custom-btn-lg) --- */
 .btn-info,
 .custom-btn-lg {
-  background-color: var(--teal);
-  color: var(--white);
-  border: none;
-  border-radius: 50px; /* Más redondeado para un look moderno */
-  padding: 1rem 2.5rem; /* Un poco más de padding */
-  font-weight: bold;
-  font-size: 1.2rem; /* Un poco más grande */
-  text-decoration: none;
-  display: inline-block; /* Para asegurar que el padding y tamaño funcionen bien */
-  transition: all 0.3s ease; /* Transición para todas las propiedades */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 50px; /* Más redondeado para un look moderno */
+    padding: 1.1rem 2.8rem; /* Un poco más de padding */
+    font-weight: bold;
+    font-size: 1.3rem; /* Un poco más grande */
+    text-decoration: none;
+    display: inline-block; /* Para asegurar que el padding y tamaño funcionen bien */
+    transition: all 0.3s ease; /* Transición para todas las propiedades */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); /* Sombra sutil */
+    position: relative; /* Para el efecto de brillo */
+    overflow: hidden; /* Oculta el pseudo-elemento de brillo */
+    z-index: 1;
+    font-family: 'Pixelify Sans', sans-serif; /* Fuente para botones */
 }
 
 .btn-info:hover,
 .custom-btn-lg:hover {
-  background-color: var(--navy);
-  transform: translateY(-3px); /* Efecto de "levantar" al pasar el ratón */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el ratón */
-  color: var(--white);
+    background-color: var(--navy);
+    transform: translateY(-4px); /* Efecto de "levantar" al pasar el ratón */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada al pasar el ratón */
+    color: var(--white);
 }
+
+/* Efecto de brillo para .custom-btn-lg */
+.custom-btn-lg::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.custom-btn-lg:hover::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
 /* login general*/
 /* --- Estilo general para el login --- */
 .custom-login-body {
-  background: linear-gradient(to bottom, var(--beige), var(--sky-blue));
-  color: var(--navy);
+    background: linear-gradient(to bottom, var(--beige), var(--sky-blue));
+    color: var(--navy);
 }
 
 /* --- Tarjeta del formulario de login --- */
 .login-card {
-  background-color: var(--white);
-  border: 1px solid var(--teal);
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    background-color: var(--white);
+    border: 1px solid var(--teal);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
 }
 
 /* --- Título del login --- */
 .login-card h2 {
-  color: var(--teal);
-  font-weight: 700;
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 2.2rem;
+    font-family: 'Press Start 2P', cursive; /* Título del login */
 }
 
 /* --- Inputs del login --- */
 .login-card .form-control {
-  background-color: var(--sky-blue);
-  border: 1px solid var(--teal);
-  border-radius: 10px;
-  color: var(--navy);
+    background-color: var(--sky-blue);
+    border: 1px solid var(--teal);
+    border-radius: 12px; /* Ligeramente más redondeado */
+    color: var(--navy);
+    padding: 0.75rem 1rem;
+    font-family: 'VT323', monospace; /* Fuente para inputs */
+}
+
+.login-card .form-control::placeholder {
+    color: rgba(47, 65, 86, 0.7); /* Color más oscuro para el placeholder */
 }
 
 .login-card .form-control:focus {
-  border-color: var(--navy);
-  box-shadow: 0 0 0 0.2rem rgba(47, 65, 86, 0.25); /* navy transparente */
+    border-color: var(--navy);
+    box-shadow: 0 0 0 0.25rem rgba(47, 65, 86, 0.35); /* navy transparente más fuerte */
+    background-color: var(--white); /* Fondo blanco al enfocar */
 }
 
 /* --- Etiquetas de los inputs --- */
 .login-card .form-label {
-  color: var(--dark-navy);
-  font-weight: 500;
+    color: var(--dark-navy);
+    font-weight: 600; /* Más negrita */
+    margin-bottom: 0.5rem;
+    font-family: 'Pixelify Sans', sans-serif; /* Fuente para etiquetas */
 }
 
 /* --- Botón estilizado para login --- */
 .styled-button {
-  position: relative;
-  background-color: var(--teal);
-  color: var(--white);
-  font-size: 1.1rem;
-  font-weight: bold;
-  padding: 0.9rem 2rem;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  gap: 10px;
-  text-align: center;
+    position: relative;
+    background-color: var(--teal);
+    color: var(--white);
+    font-size: 1.2rem; /* Más grande */
+    font-weight: bold;
+    padding: 1rem 2.2rem; /* Más padding */
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    gap: 10px;
+    text-align: center;
+    overflow: hidden; /* Para el efecto de brillo */
+    font-family: 'Pixelify Sans', sans-serif; /* Fuente para el botón de login */
 }
 
 .styled-button:hover {
-  background-color: var(--navy);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  color: var(--white);
+    background-color: var(--navy);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    color: var(--white);
 }
 
+.styled-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.styled-button:hover::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
+
 .inner-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .styled-button .icon {
-  height: 24px;
-  width: 24px;
-  transition: transform 0.3s ease;
-  margin-left: 5px;
+    height: 28px; /* Icono más grande */
+    width: 28px;
+    transition: transform 0.3s ease;
+    margin-left: 8px; /* Más margen */
 }
 
 .styled-button:hover .icon {
-  transform: translateX(5px);
+    transform: translateX(8px); /* Mayor desplazamiento del icono */
 }
 
 /* --- Main Section (Contenido principal del index) --- */
 .main-content-index { /* Nueva clase para el main del index.html */
-  padding: 60px 20px; /* Más padding para espacio */
-  background: linear-gradient(to bottom, var(--beige) 70%, var(--sky-blue) 100%); /* Degradado suave */
-  border-bottom-left-radius: 50px; /* Curvas en la parte inferior */
-  border-bottom-right-radius: 50px;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    padding: 70px 25px; /* Más padding para espacio */
+    background: linear-gradient(to bottom, var(--beige) 60%, var(--sky-blue) 100%); /* Degradado suave */
+    border-bottom-left-radius: 60px; /* Curvas más pronunciadas */
+    border-bottom-right-radius: 60px;
+    margin-bottom: 40px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Sombra para destacar */
 }
 
 .custom-title {
-  color: var(--navy);
-  font-size: 3.5rem; /* Título más grande y con impacto */
-  margin-bottom: 1.5rem;
-  letter-spacing: -1px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--navy);
+    font-size: 4rem; /* Título más grande y con impacto */
+    margin-bottom: 1.8rem;
+    letter-spacing: -1.5px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Press Start 2P', cursive; /* Título principal */
 }
 
 .custom-subtitle {
-  color: var(--teal);
-  font-size: 1.4rem; /* Subtítulo más legible */
-  max-width: 800px; /* Limita el ancho para mejor lectura */
-  margin: 0 auto 2.5rem auto; /* Centra y añade más margen inferior */
+    color: var(--teal);
+    font-size: 1.6rem; /* Subtítulo más legible */
+    max-width: 900px; /* Limita el ancho para mejor lectura */
+    margin: 0 auto 3rem auto; /* Centra y añade más margen inferior */
+    font-family: 'Pixelify Sans', sans-serif; /* Subtítulo principal */
 }
 
 /* --- Sección de Funcionalidades (Cards) --- */
 .section-features { /* Nueva clase para la sección de cards */
-  padding-bottom: 50px; /* Espacio inferior */
+    padding-top: 30px;
+    padding-bottom: 60px; /* Espacio inferior */
 }
 
+/* Estilos generales de las tarjetas - MODIFICADOS para mejorar la legibilidad del texto sobre las imágenes */
 .card {
-  background-color: var(--sky-blue);
-  color: var(--navy); /* Texto en navy para contraste */
-  border: 1px solid var(--teal);
-  border-radius: 15px; /* Bordes más suaves */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más definida */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden; /* Para asegurar que el contenido no se salga con los bordes redondeados */
-  position: relative; /* Para posibles efectos internos */
+    background-color: var(--sky-blue); /* Este color de fondo será sobrescrito por la imagen en tarjetas específicas */
+    color: var(--navy); /* Color de texto base, puede ser sobrescrito */
+    border: 1px solid var(--teal);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    /* Agrega un degradado semitransparente oscuro para que el texto sea legible sobre la imagen */
+    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%); /* Capa oscura */
+    background-repeat: no-repeat;
+    background-size: cover; /* Asegura que la imagen cubra toda la tarjeta */
+    background-position: center center; /* Centra la imagen */
+    color: var(--white); /* Cambia el color del texto a blanco para un mejor contraste */
 }
 
 .card:hover {
-  transform: translateY(-8px); /* Mayor efecto de elevación */
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
 }
 
 .card-body {
-  padding: 30px; /* Más padding dentro de la tarjeta */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* Asegura que el contenido esté por encima de la imagen de fondo */
+    position: relative;
+    z-index: 1;
 }
 
 .card-body .fa-2x {
-  color: var(--teal); /* Iconos en color teal */
-  font-size: 3.5rem; /* Iconos más grandes */
-  margin-bottom: 20px;
-  transition: color 0.3s ease, transform 0.3s ease;
+    color: var(--white); /* Los íconos también deberían ser blancos para el contraste */
+    font-size: 4rem;
+    margin-bottom: 25px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover .card-body .fa-2x {
-  color: var(--navy); /* Cambio de color en el icono al pasar el ratón */
-  transform: scale(1.1); /* Efecto de zoom en el icono */
+    color: var(--sky-blue); /* Cambia el color del ícono al pasar el mouse */
+    transform: scale(1.15);
 }
 
 .card-title {
-  color: var(--navy); /* Título de la tarjeta en navy */
-  font-size: 1.8rem; /* Título de la tarjeta más grande */
-  font-weight: 600;
-  margin-bottom: 15px;
+    color: var(--white); /* El título de la tarjeta también en blanco */
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    font-family: 'Pixelify Sans', sans-serif;
 }
 
 .card-text {
-  color: var(--dark-navy); /* Texto de la tarjeta en un navy más oscuro */
-  font-size: 1.1rem;
-  line-height: 1.7;
+    color: var(--sky-blue); /* El texto de la tarjeta un poco más claro para la legibilidad */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-family: 'VT323', monospace;
 }
 
-/* --- Footer (Aún no tienes uno, pero es bueno dejar el espacio) --- */
+/* --- Fondos específicos de las tarjetas --- */
+.card-calendar .card {
+  background-image:
+    linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
+    url('../assets/img/calendario.png');
+}
+.card-objectives .card {
+  background-image:
+    linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
+    url("/EnFoco-FrontEnd/assets/img/obj-.jpg")
+}
+
+
+/* Regla para las tarjetas que NO tienen una imagen específica (mantienen el color de fondo original) */
+.card:not(.card-calendar):not(.card-objectives) {
+    background-color: var(--sky-blue); /* Color de fondo predeterminado */
+    background-image: none; /* Asegura que no tengan ninguna imagen de fondo de la regla general */
+    color: var(--navy); /* Color de texto predeterminado */
+}
+/* Aseguramos los colores de texto y íconos para las tarjetas sin imagen */
+.card:not(.card-calendar):not(.card-objectives) .card-body .fa-2x {
+    color: var(--teal);
+}
+.card:not(.card-calendar):not(.card-objectives) .card-title {
+    color: var(--navy);
+}
+.card:not(.card-calendar):not(.card-objectives) .card-text {
+    color: var(--dark-navy);
+}
+
+
+/* --- Sección "¿Quiénes somos?" --- */
+#quienes-somos h2 {
+    font-family: 'Press Start 2P', cursive; /* Título de Quiénes somos */
+    font-size: 3rem; /* Ajusta el tamaño si es necesario */
+    color: var(--navy);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+#quienes-somos p.lead {
+    font-family: 'Pixelify Sans', sans-serif; /* Párrafo principal de Quiénes somos */
+    font-size: 1.4rem;
+    color: var(--teal);
+}
+
+#quienes-somos p {
+    font-family: 'VT323', monospace; /* Párrafo secundario de Quiénes somos */
+    font-size: 1.1rem;
+    color: var(--dark-navy);
+}
+
+/* --- Footer --- */
 .custom-footer {
-  background-color: var(--navy);
-  color: var(--sky-blue);
-  padding: 25px 0;
-  text-align: center;
-  font-size: 0.9rem;
-  margin-top: auto; /* Empuja el footer hacia abajo */
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Sombra superior */
+    background-color: var(--navy);
+    color: var(--sky-blue);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.25); /* Sombra superior más pronunciada */
+    font-family: 'VT323', monospace; /* Fuente para el footer */
 }
 
 
@@ -264,145 +417,212 @@ h1{
 /* Calendario */
 .table th,
 .table td {
-  height: 80px;
-  vertical-align: middle;
-  font-size: 1.1rem; /* Ligeramente más grande */
-  background-color: var(--sky-blue);
-  border: 1px solid var(--teal); /* Borde con color de variable */
-  color: var(--navy); /* Color de texto para el contenido de la tabla */
+    height: 90px; /* Más alto */
+    vertical-align: middle;
+    font-size: 1.2rem; /* Ligeramente más grande */
+    background-color: var(--sky-blue);
+    border: 1px solid var(--teal); /* Borde con color de variable */
+    color: var(--navy); /* Color de texto para el contenido de la tabla */
+    transition: background-color 0.3s ease;
+    font-family: 'VT323', monospace; /* Fuentes para tablas */
 }
 
 .table th {
-  background-color: var(--teal);
-  color: var(--white);
-  font-weight: bold;
+    background-color: var(--teal);
+    color: var(--white);
+    font-weight: bold;
+}
+
+.table td:hover {
+    background-color: var(--light-teal); /* Resaltar celdas al pasar el ratón */
 }
 
 /* Mapa de energía */
 .energy-map td {
-  cursor: pointer;
-  background-color: var(--sky-blue);
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Añadimos transform a la transición */
+    cursor: pointer;
+    background-color: var(--sky-blue);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Añadimos transform a la transición */
 }
 
 .energy-map td:hover {
-  transform: scale(1.05); /* Ligerísimo zoom al pasar el ratón */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.06); /* Ligerísimo zoom al pasar el ratón */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    z-index: 2; /* Asegura que la celda con zoom esté sobre otras */
 }
 
 .energy-low {
-  background-color: var(--teal) !important;
-  color: var(--white);
+    background-color: var(--teal) !important;
+    color: var(--white);
 }
 
 .energy-medium {
-  background-color: var(--sky-blue) !important;
-  color: var(--navy);
+    background-color: var(--sky-blue) !important;
+    color: var(--navy);
 }
 
 .energy-high {
-  background-color: var(--navy) !important;
-  color: var(--white);
+    background-color: var(--navy) !important;
+    color: var(--white);
 }
 
 /* Objetivos y tareas */
 .list-group-item {
-  background-color: var(--sky-blue);
-  color: var(--navy);
-  border: 1px solid var(--teal);
-  border-radius: 8px; /* Ligeramente redondeado */
-  margin-bottom: 10px; /* Espacio entre ítems */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px; /* Más padding */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--sky-blue);
+    color: var(--navy);
+    border: 1px solid var(--teal);
+    border-radius: 10px; /* Ligeramente redondeado */
+    margin-bottom: 12px; /* Espacio entre ítems */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px; /* Más padding */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'VT323', monospace; /* Fuentes para ítems de lista */
 }
 
 .list-group-item:hover {
-  background-color: var(--light-teal); /* Un color más claro al pasar el ratón */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--light-teal); /* Un color más claro al pasar el ratón */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .objetivo-completado,
 .tarea-completada {
-  text-decoration: line-through;
-  color: #8a9bab;
-  font-style: italic; /* Para que se vea diferente al completado */
+    text-decoration: line-through;
+    color: #8a9bab;
+    font-style: italic; /* Para que se vea diferente al completado */
+    opacity: 0.7; /* Menos opacidad */
 }
 
 /* Fade-in animation */
 .fade-in {
-  animation: fadeIn 1.2s ease-in-out forwards;
-  opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards; /* Animación más larga y suave */
+    opacity: 0;
 }
 
+/* --- Mejoras visuales para el temporizador --- */
+#timer {
+    font-size: 5rem; /* Más grande */
+    letter-spacing: 3px;
+    color: var(--teal);
+    text-shadow: 3px 3px 6px rgba(47, 65, 86, 0.4);
+    transition: color 0.3s ease;
+    font-family: 'Press Start 2P', cursive; /* Fuente para el temporizador */
+}
+
+#timer.running {
+    color: var(--navy);
+}
+
+#motivacion {
+    font-size: 1.2rem; /* Más grande */
+    font-style: italic;
+    animation: fadeInText 2.5s ease-in-out forwards; /* Animación más larga */
+    opacity: 0;
+    color: var(--dark-navy); /* Color más oscuro para el texto */
+    font-family: 'Pixelify Sans', sans-serif; /* Fuente para la motivación */
+}
+
+@keyframes fadeInText {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vibrar {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+.vibrar {
+    animation: vibrar 0.6s ease-in-out 3;
+}
+
+
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Media Queries (ajustadas para los nuevos tamaños de fuente) */
 @media (max-width: 992px) {
-  .custom-title {
-    font-size: 2.8rem;
-  }
-  .custom-subtitle {
-    font-size: 1.2rem;
-  }
-  .card-title {
-    font-size: 1.6rem;
-  }
-  .card-body .fa-2x {
-    font-size: 3rem;
-  }
+    .custom-title {
+        font-size: 3.2rem;
+    }
+    .custom-subtitle {
+        font-size: 1.4rem;
+    }
+    .card-title {
+        font-size: 1.8rem;
+    }
+    .card-body .fa-2x {
+        font-size: 3.5rem;
+    }
+    #timer {
+        font-size: 4rem;
+    }
 }
 
 @media (max-width: 768px) {
-  .custom-title {
-    font-size: 2.2rem;
-  }
-  .custom-subtitle {
-    font-size: 1.1rem;
-  }
-  .card-title {
-    font-size: 1.4rem;
-  }
-  .card-text {
-    font-size: 1rem;
-  }
-  .card-body .fa-2x {
-    font-size: 2.5rem;
-  }
-  .custom-btn-lg {
-    font-size: 1.1rem;
-    padding: 0.8rem 2rem;
-  }
-  .navbar-brand {
-    font-size: 1.6rem;
-  }
+    .custom-title {
+        font-size: 2.5rem;
+    }
+    .custom-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+    }
+    .card-title {
+        font-size: 1.6rem;
+    }
+    .card-text {
+        font-size: 1.1rem;
+    }
+    .card-body .fa-2x {
+        font-size: 3rem;
+    }
+    .custom-btn-lg {
+        font-size: 1.2rem;
+        padding: 0.9rem 2.2rem;
+    }
+    .navbar-brand {
+        font-size: 1.8rem;
+    }
+    #timer {
+        font-size: 3.5rem;
+    }
 }
 
 @media (max-width: 576px) {
-  .custom-title {
-    font-size: 1.8rem;
-  }
-  .custom-subtitle {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  .custom-btn-lg {
-    font-size: 1rem;
-    padding: 0.7rem 1.8rem;
-  }
-  .navbar-brand {
-    font-size: 1.4rem;
-  }
-  .card-body .fa-2x {
-    font-size: 2rem;
-  }
-  .card-title {
-    font-size: 1.2rem;
-  }
+    .custom-title {
+        font-size: 2rem;
+    }
+    .custom-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    .custom-btn-lg {
+        font-size: 1.1rem;
+        padding: 0.8rem 2rem;
+    }
+    .navbar-brand {
+        font-size: 1.6rem;
+    }
+    .card-body .fa-2x {
+        font-size: 2.5rem;
+    }
+    .card-title {
+        font-size: 1.4rem;
+    }
+    .card-text {
+        font-size: 1rem;
+    }
+    .main-content-index {
+        padding: 50px 15px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+    #timer {
+        font-size: 3rem;
+    }
 }
