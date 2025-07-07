@@ -1,409 +1,1423 @@
+/* --- Definición para Bitcount Grid Double --- */
+/* Asegúrate de que la ruta URL sea correcta según donde guardaste el archivo TTF */
+@font-face {
+    font-family: 'Bitcount Grid Double'; /* Este es el nombre que usarás en font-family */
+    src: url('../assets/fonts/BitcountGridDouble-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+#bodyIndex {
+  background: url('/EnFoco-FrontEnd/assets/img/paisaje11.gif') no-repeat center center fixed;
+  background-size: cover;
+}
+#indexMain.main-content-index {
+  background: #ffffff20 !important;
+}
+
+
+.section-features .card {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #fff; /* texto blanco */
+}
+
 /* --- Variables --- */
 :root {
-  --navy: #2F4156;
-  --teal: #567C8D;
-  --sky-blue: #C8D9E6;
-  --beige: #F5EFEB;
+  --teal: #1A759F;
+  --navy: #102542;
+  --sky-blue: #BEE9E8;
+  --accent-blue: #56CFE1;
+  --beige: #FAF3DD;
   --white: #FFFFFF;
-  --dark-navy: #1f2a38; /* Nuevo: un tono más oscuro de navy para sombras y detalles */
-  --light-teal: #8cbacb; /* Nuevo: un tono más claro de teal para efectos */
+  --dark-navy-alpha: rgba(16, 37, 66, 0.3);
+  --light-gray: #ccc;
 }
+
 
 /* --- Reset --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* --- Body --- */
 body {
-  background-color: var(--beige);
-  color: var(--navy);
-  display: flex;
-  flex-direction: column; /* Asegura que el cuerpo sea un contenedor flex de columna */
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
-  line-height: 1.6;
+    background-color: var(--beige);
+    color: var(--navy);
+    display: flex;
+    flex-direction: column; /* Asegura que el cuerpo sea un contenedor flex de columna */
+    min-height: 100vh;
+    /* Aplica una fuente pixelada a todo el cuerpo, si te gusta la legibilidad general */
+    font-family: 'Pixelify Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
 }
 h1{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  font-family: 'PixelCode';
 }
 /* --- Navbar --- */
 .navbar {
-  background-color: var(--navy) !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    background-color: var(--navy) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para profundidad */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .navbar-brand {
-  font-size: 2rem; /* Un poco más grande */
-  color: var(--sky-blue) !important;
-  font-weight: 700; /* Más negrita */
-  letter-spacing: 1px; /* Espaciado entre letras */
-  transition: color 0.3s ease;
+    font-size: 2.2rem; /* Un poco más grande */
+    color: var(--sky-blue) !important;
+    font-weight: 700; /* Más negrita */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    transition: color 0.3s ease;
+    font-family: 'VT323', monospace; /* Fuente pixelada para el nombre de la marca */
+    
+    /* ESTILOS AGREGADOS PARA ALINEAR EL LOGO */
+    display: flex; /* Convierte el enlace en un flex container */
+    align-items: center; /* Centra verticalmente los elementos dentro del enlace */
+    line-height: 1; /* Asegura que el texto y la imagen se alineen bien */
 }
 
 .navbar-brand:hover {
-  color: var(--white) !important; /* Cambia de color al pasar el ratón */
+    color: var(--white) !important; /* Cambia de color al pasar el ratón */
+    transform: scale(1.02); /* Ligero zoom */
 }
 
+/* ESTILOS AGREGADOS PARA EL LOGO DENTRO DE LA NAVBAR */
+.navbar-logo {
+    height: 40px; /* Tamaño del logo. Ajusta este valor si necesitas un tamaño diferente */
+    margin-right: 10px; /* Espacio entre el logo y el texto "EnFoco" */
+    vertical-align: middle; /* Para alinear verticalmente con el texto */
+    transition: transform 0.3s ease; /* Pequeña animación al pasar el ratón */
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón sobre la marca */
+}
+/* FIN DE ESTILOS AGREGADOS PARA EL LOGO */
+
+
 .nav-link {
-  color: var(--white) !important;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--white) !important;
+    font-weight: 500;
+    padding: 0.7rem 1.2rem; /* Más padding */
+    border-radius: 8px; /* Más redondeado */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-family: 'Pixelify Sans', sans-serif; /* Puedes aplicar Pixelify Sans aquí también */
 }
 
 .nav-link:hover {
-  color: var(--sky-blue) !important;
-  background-color: rgba(255, 255, 255, 0.1); /* Ligero fondo al pasar el ratón */
+    color: var(--sky-blue) !important;
+    background-color: rgba(255, 255, 255, 0.15); /* Ligero fondo al pasar el ratón */
+    transform: translateY(-2px); /* Efecto de "levantar" */
 }
 
 /* --- Botones Generales (incluye .custom-btn-lg) --- */
 .btn-info,
 .custom-btn-lg {
-  background-color: var(--teal);
-  color: var(--white);
-  border: none;
-  border-radius: 50px; /* Más redondeado para un look moderno */
-  padding: 1rem 2.5rem; /* Un poco más de padding */
-  font-weight: bold;
-  font-size: 1.2rem; /* Un poco más grande */
-  text-decoration: none;
-  display: inline-block; /* Para asegurar que el padding y tamaño funcionen bien */
-  transition: all 0.3s ease; /* Transición para todas las propiedades */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 50px; /* Más redondeado para un look moderno */
+    padding: 1.1rem 2.8rem; /* Un poco más de padding */
+    font-weight: bold;
+    font-size: 1.3rem; /* Un poco más grande */
+    text-decoration: none;
+    display: inline-block; /* Para asegurar que el padding y tamaño funcionen bien */
+    transition: all 0.3s ease; /* Transición para todas las propiedades */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); /* Sombra sutil */
+    position: relative; /* Para el efecto de brillo */
+    overflow: hidden; /* Oculta el pseudo-elemento de brillo */
+    z-index: 1;
+    font-family: 'Pixelify Sans', sans-serif; /* Fuente para botones */
 }
 
 .btn-info:hover,
 .custom-btn-lg:hover {
-  background-color: var(--navy);
-  transform: translateY(-3px); /* Efecto de "levantar" al pasar el ratón */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el ratón */
-  color: var(--white);
+    background-color: var(--navy);
+    transform: translateY(-4px); /* Efecto de "levantar" al pasar el ratón */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada al pasar el ratón */
+    color: var(--white);
 }
+
+/* Efecto de brillo para .custom-btn-lg */
+.custom-btn-lg::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.custom-btn-lg:hover::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
 /* login general*/
 /* --- Estilo general para el login --- */
 .custom-login-body {
-  background: linear-gradient(to bottom, var(--beige), var(--sky-blue));
-  color: var(--navy);
+    background: linear-gradient(to bottom, var(--beige), var(--sky-blue));
+    color: var(--navy);
 }
 
 /* --- Tarjeta del formulario de login --- */
 .login-card {
-  background-color: var(--white);
-  border: 1px solid var(--teal);
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    background-color: var(--white);
+    border: 1px solid var(--teal);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
 }
 
 /* --- Título del login --- */
 .login-card h2 {
-  color: var(--teal);
-  font-weight: 700;
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 2.2rem;
+    font-family: 'Press Start 2P', cursive; /* Título del login */
 }
 
 /* --- Inputs del login --- */
 .login-card .form-control {
-  background-color: var(--sky-blue);
-  border: 1px solid var(--teal);
-  border-radius: 10px;
-  color: var(--navy);
+    background-color: var(--sky-blue);
+    border: 1px solid var(--teal);
+    border-radius: 12px; /* Ligeramente más redondeado */
+    color: var(--navy);
+    padding: 0.75rem 1rem;
+    font-family: 'VT323', monospace; /* Fuente para inputs */
+}
+
+.login-card .form-control::placeholder {
+    color: rgba(47, 65, 86, 0.7); /* Color más oscuro para el placeholder */
 }
 
 .login-card .form-control:focus {
-  border-color: var(--navy);
-  box-shadow: 0 0 0 0.2rem rgba(47, 65, 86, 0.25); /* navy transparente */
+    border-color: var(--navy);
+    box-shadow: 0 0 0 0.25rem rgba(47, 65, 86, 0.35); /* navy transparente más fuerte */
+    background-color: var(--white); /* Fondo blanco al enfocar */
 }
 
 /* --- Etiquetas de los inputs --- */
 .login-card .form-label {
-  color: var(--dark-navy);
-  font-weight: 500;
+    color: var(--dark-navy);
+    font-weight: 600; /* Más negrita */
+    margin-bottom: 0.5rem;
+    font-family: 'Pixelify Sans', sans-serif; /* Fuente para etiquetas */
 }
 
 /* --- Botón estilizado para login --- */
 .styled-button {
-  position: relative;
-  background-color: var(--teal);
-  color: var(--white);
-  font-size: 1.1rem;
-  font-weight: bold;
-  padding: 0.9rem 2rem;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  gap: 10px;
-  text-align: center;
+    position: relative;
+    background-color: var(--teal);
+    color: var(--white);
+    font-size: 1.2rem; /* Más grande */
+    font-weight: bold;
+    padding: 1rem 2.2rem; /* Más padding */
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    gap: 10px;
+    text-align: center;
+    overflow: hidden; /* Para el efecto de brillo */
+    font-family: 'Pixelify Sans', sans-serif; /* Fuente para el botón de login */
 }
 
 .styled-button:hover {
-  background-color: var(--navy);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  color: var(--white);
+    background-color: var(--navy);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    color: var(--white);
 }
 
+.styled-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.styled-button:hover::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
+
 .inner-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .styled-button .icon {
-  height: 24px;
-  width: 24px;
-  transition: transform 0.3s ease;
-  margin-left: 5px;
+    height: 28px; /* Icono más grande */
+    width: 28px;
+    transition: transform 0.3s ease;
+    margin-left: 8px; /* Más margen */
 }
 
 .styled-button:hover .icon {
-  transform: translateX(5px);
+    transform: translateX(8px); /* Mayor desplazamiento del icono */
 }
 
 /* --- Main Section (Contenido principal del index) --- */
 .main-content-index { /* Nueva clase para el main del index.html */
-  padding: 60px 20px; /* Más padding para espacio */
-  background: linear-gradient(to bottom, var(--beige) 70%, var(--sky-blue) 100%); /* Degradado suave */
-  border-bottom-left-radius: 50px; /* Curvas en la parte inferior */
-  border-bottom-right-radius: 50px;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    padding: 70px 25px; /* Más padding para espacio */
+    background: linear-gradient(to bottom, var(--beige) 60%, var(--sky-blue) 100%); /* Degradado suave */
+    border-bottom-left-radius: 60px; /* Curvas más pronunciadas */
+    border-bottom-right-radius: 60px;
+    margin-bottom: 40px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Sombra para destacar */
 }
 
 .custom-title {
-  color: var(--navy);
-  font-size: 3.5rem; /* Título más grande y con impacto */
-  margin-bottom: 1.5rem;
-  letter-spacing: -1px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--navy);
+    font-size: 4rem; /* Título más grande y con impacto */
+    margin-bottom: 1.8rem;
+    letter-spacing: -1.5px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Press Start 2P', cursive; /* Título principal */
 }
 
 .custom-subtitle {
-  color: var(--teal);
-  font-size: 1.4rem; /* Subtítulo más legible */
-  max-width: 800px; /* Limita el ancho para mejor lectura */
-  margin: 0 auto 2.5rem auto; /* Centra y añade más margen inferior */
+    color: var(--teal);
+    font-size: 1.6rem; /* Subtítulo más legible */
+    max-width: 900px; /* Limita el ancho para mejor lectura */
+    margin: 0 auto 3rem auto; /* Centra y añade más margen inferior */
+    font-family: 'Pixelify Sans', sans-serif; /* Subtítulo principal */
 }
 
 /* --- Sección de Funcionalidades (Cards) --- */
 .section-features { /* Nueva clase para la sección de cards */
-  padding-bottom: 50px; /* Espacio inferior */
+    padding-top: 30px;
+    padding-bottom: 60px; /* Espacio inferior */
 }
 
+/* Estilos generales de las tarjetas */
+/* No definimos colores de texto e icono aquí para que los individuales sobrescriban */
 .card {
-  background-color: var(--sky-blue);
-  color: var(--navy); /* Texto en navy para contraste */
-  border: 1px solid var(--teal);
-  border-radius: 15px; /* Bordes más suaves */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más definida */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden; /* Para asegurar que el contenido no se salga con los bordes redondeados */
-  position: relative; /* Para posibles efectos internos */
+    background-color: var(--sky-blue); /* Este color de fondo será sobrescrito por la imagen en tarjetas específicas */
+    border: 1px solid var(--teal);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    /* El degradado oscuro se aplica a todas las tarjetas que tienen imagen de fondo */
+    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .card:hover {
-  transform: translateY(-8px); /* Mayor efecto de elevación */
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
 }
 
 .card-body {
-  padding: 30px; /* Más padding dentro de la tarjeta */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
+/* Iconos de las tarjetas */
 .card-body .fa-2x {
-  color: var(--teal); /* Iconos en color teal */
-  font-size: 3.5rem; /* Iconos más grandes */
-  margin-bottom: 20px;
-  transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 4rem;
+    margin-bottom: 25px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
-
 .card:hover .card-body .fa-2x {
-  color: var(--navy); /* Cambio de color en el icono al pasar el ratón */
-  transform: scale(1.1); /* Efecto de zoom en el icono */
+    color: var(--sky-blue); /* Color del ícono al pasar el mouse */
+    transform: scale(1.15);
 }
 
+/* Títulos de las tarjetas */
 .card-title {
-  color: var(--navy); /* Título de la tarjeta en navy */
-  font-size: 1.8rem; /* Título de la tarjeta más grande */
-  font-weight: 600;
-  margin-bottom: 15px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    font-family: 'Pixelify Sans', sans-serif;
 }
 
+/* Texto de las tarjetas */
 .card-text {
-  color: var(--dark-navy); /* Texto de la tarjeta en un navy más oscuro */
-  font-size: 1.1rem;
-  line-height: 1.7;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-family: 'VT323', monospace;
 }
 
-/* --- Footer (Aún no tienes uno, pero es bueno dejar el espacio) --- */
+/* --- Fondos específicos y colores de texto/iconos de las tarjetas --- */
+/* Tarjeta Calendario inteligente */
+#calendarCard {
+    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
+                      url('../assets/img/calendario.png');
+    background-size: cover;
+    background-position: center;
+}
+#calendarCard .card-body .fa-2x {
+    color: var(--navy); /* Icono */
+}
+#calendarCard .card-title {
+    color: var(--navy); /* Título */
+}
+#calendarCard .card-text {
+    color: var(--navy); /* Texto */
+}
+
+/* Tarjeta Objetivos diarios */
+#objectivesCard {
+    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
+                      url('../assets/img/objjjetivvos.png');
+    background-size: cover;
+    background-position: center;
+}
+#objectivesCard .card-body .fa-2x {
+    color: var(--navy); /* Icono */
+}
+#objectivesCard .card-title {
+    color: var(--navy); /* Título */
+}
+#objectivesCard .card-text {
+    color: var(--navy); /* Texto */
+}
+
+/* Tarjeta Técnicas de enfoque */
+.card-mindfulness-inner {
+    /* Si tiene background-image, puedes agregarla aquí */
+    /* background-image: url('...'); */
+    background-color: var(--sky-blue); /* Si no tiene imagen, mantén este fondo */
+}
+.card-mindfulness-inner .card-body .fa-2x {
+    color: var(--navy); /* Icono */
+}
+.card-mindfulness-inner .card-title {
+    color: var(--navy); /* Título */
+}
+.card-mindfulness-inner .card-text {
+    color: var(--navy); /* Texto */
+}
+#tecnicasCard{
+    background-image: url("/EnFoco-FrontEnd/assets/img/tecnicasEnf.png");
+}
+
+/* Tarjeta Mapa de energía */
+.card-energy-inner {
+    /* Si tiene background-image, puedes agregarla aquí */
+    /* background-image: url('...'); */
+    background-color: var(--sky-blue); /* Si no tiene imagen, mantén este fondo */
+}
+.card-energy-inner .card-body .fa-2x {
+    color: var(--navy); /* Icono */
+}
+.card-energy-inner .card-title {
+    color: var(--navy); /* Título */
+}
+.card-energy-inner .card-text {
+    color: var(--navy); /* Texto */
+}
+
+#energiaCard{
+    background-image: url("/EnFoco-FrontEnd/assets/img/energyMAP.png");
+}
+
+/* Regla para las tarjetas que NO tienen una clase "inner" específica ni ID */
+/* Esto cubre cualquier otra tarjeta general que no sea las 4 mencionadas */
+.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) {
+    background-color: var(--sky-blue); /* Fondo predeterminado */
+    background-image: none; /* Asegura que no tengan una imagen de fondo si no la quieres */
+}
+/* Colores específicos para estas tarjetas "genéricas" */
+.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) .card-body .fa-2x {
+    color: var(--teal); /* Ícono de estas tarjetas */
+}
+.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) .card-title {
+    color: var(--navy); /* Título de estas tarjetas */
+}
+.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) .card-text {
+    color: var(--dark-navy); /* Texto de estas tarjetas */
+}
+
+
+/* --- Sección "¿Quiénes somos?" --- */
+#quienes-somos h2 {
+    font-family: 'Press Start 2P', cursive; /* Título de Quiénes somos */
+    font-size: 3rem; /* Ajusta el tamaño si es necesario */
+    color: var(--navy);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+#quienes-somos p.lead {
+    font-family: 'Pixelify Sans', sans-serif; /* Párrafo principal de Quiénes somos */
+    font-size: 1.4rem;
+    color: var(--teal);
+}
+
+#quienes-somos p {
+    font-family: 'VT323', monospace; /* Párrafo secundario de Quiénes somos */
+    font-size: 1.1rem;
+    color: var(--dark-navy);
+}
+
+/* --- Footer --- */
 .custom-footer {
-  background-color: var(--navy);
-  color: var(--sky-blue);
-  padding: 25px 0;
-  text-align: center;
-  font-size: 0.9rem;
-  margin-top: auto; /* Empuja el footer hacia abajo */
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Sombra superior */
+    background-color: var(--navy);
+    color: var(--sky-blue);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.25); /* Sombra superior más pronunciada */
+    font-family: 'VT323', monospace; /* Fuente para el footer */
 }
 
 
-/* --- Otras secciones (mantenemos tus estilos existentes pero las ajustamos ligeramente) --- */
-
-/* Calendario */
+/* --- Otras secciones (mantenemos estilos existentes pero las ajustamos ligeramente) --- */
+/* Calendario (TABLA, no la CARD) */
 .table th,
 .table td {
-  height: 80px;
-  vertical-align: middle;
-  font-size: 1.1rem; /* Ligeramente más grande */
-  background-color: var(--sky-blue);
-  border: 1px solid var(--teal); /* Borde con color de variable */
-  color: var(--navy); /* Color de texto para el contenido de la tabla */
+    height: 90px; /* Más alto */
+    vertical-align: middle;
+    font-size: 1.2rem; /* Ligeramente más grande */
+    background-color: var(--sky-blue);
+    border: 1px solid var(--teal); /* Borde con color de variable */
+    color: var(--navy); /* Color de texto para el contenido de la tabla */
+    transition: background-color 0.3s ease;
+    font-family: 'VT323', monospace; /* Fuentes para tablas */
 }
 
 .table th {
-  background-color: var(--teal);
-  color: var(--white);
-  font-weight: bold;
+    background-color: var(--teal);
+    color: var(--white);
+    font-weight: bold;
 }
 
-/* Mapa de energía */
+.table td:hover {
+    background-color: var(--light-teal); /* Resaltar celdas al pasar el ratón */
+}
+
+/* Mapa de energía (TABLA, no la CARD) */
 .energy-map td {
-  cursor: pointer;
-  background-color: var(--sky-blue);
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Añadimos transform a la transición */
+    cursor: pointer;
+    background-color: var(--sky-blue);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Añadimos transform a la transición */
 }
 
 .energy-map td:hover {
-  transform: scale(1.05); /* Ligerísimo zoom al pasar el ratón */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.06); /* Ligerísimo zoom al pasar el ratón */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    z-index: 2; /* Asegura que la celda con zoom esté sobre otras */
 }
 
 .energy-low {
-  background-color: var(--teal) !important;
-  color: var(--white);
+    background-color: var(--teal) !important;
+    color: var(--white);
 }
 
 .energy-medium {
-  background-color: var(--sky-blue) !important;
-  color: var(--navy);
+    background-color: var(--sky-blue) !important;
+    color: var(--navy);
 }
 
 .energy-high {
-  background-color: var(--navy) !important;
-  color: var(--white);
+    background-color: var(--navy) !important;
+    color: var(--white);
 }
 
-/* Objetivos y tareas */
+/* Objetivos y tareas (LISTA, no la CARD) */
 .list-group-item {
-  background-color: var(--sky-blue);
-  color: var(--navy);
-  border: 1px solid var(--teal);
-  border-radius: 8px; /* Ligeramente redondeado */
-  margin-bottom: 10px; /* Espacio entre ítems */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px; /* Más padding */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--sky-blue);
+    color: var(--navy);
+    border: 1px solid var(--teal);
+    border-radius: 10px; /* Ligeramente redondeado */
+    margin-bottom: 12px; /* Espacio entre ítems */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px; /* Más padding */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'VT323', monospace; /* Fuentes para ítems de lista */
 }
 
 .list-group-item:hover {
-  background-color: var(--light-teal); /* Un color más claro al pasar el ratón */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--light-teal); /* Un color más claro al pasar el ratón */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .objetivo-completado,
 .tarea-completada {
-  text-decoration: line-through;
-  color: #8a9bab;
-  font-style: italic; /* Para que se vea diferente al completado */
+    text-decoration: line-through;
+    color: #8a9bab;
+    font-style: italic; /* Para que se vea diferente al completado */
+    opacity: 0.7; /* Menos opacidad */
 }
 
 /* Fade-in animation */
 .fade-in {
-  animation: fadeIn 1.2s ease-in-out forwards;
-  opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards; /* Animación más larga y suave */
+    opacity: 0;
 }
 
+/* --- Mejoras visuales para el temporizador --- */
+#timer {
+    font-size: 5rem; /* Más grande */
+    letter-spacing: 3px;
+    color: var(--teal);
+    text-shadow: 3px 3px 6px rgba(47, 65, 86, 0.4);
+    transition: color 0.3s ease;
+    font-family: 'Press Start 2P', cursive; /* Fuente para el temporizador */
+}
+
+#timer.running {
+    color: var(--navy);
+}
+
+#motivacion {
+    font-size: 1.2rem; /* Más grande */
+    font-style: italic;
+    animation: fadeInText 2.5s ease-in-out forwards; /* Animación más larga */
+    opacity: 0;
+    color: var(--dark-navy); /* Color más oscuro para el texto */
+    font-family: 'Pixelify Sans', sans-serif; /* Fuente para la motivación */
+}
+/*objetivos diarios estilos generales*/
+/* --- Contenedor principal de páginas internas como Objetivos, Calendario, etc. --- */
+/* Esta clase se usa en el div principal dentro del <main> de objetivos.html */
+.custom-page-card {
+    background-color: var(--white); /* O el color que prefieras para el fondo del "vidrio" */
+    border: 1px solid var(--teal);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    margin-top: 2rem; /* Espacio superior para páginas con navbar fija */
+    margin-bottom: 2rem;
+    /* Efecto de vidrio sutil */
+    background: rgba(255, 255, 255, 0.8); /* Fondo ligeramente transparente */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Pequeño ajuste para el título en formularios */
+.custom-title-sm {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+}
+
+/* --- Estilos para las tarjetas de objetivos individuales --- */
+.objective-card {
+    background-color: var(--sky-blue); /* Fondo de la tarjeta de objetivo */
+    color: var(--navy); /* Color de texto predeterminado para la tarjeta */
+    border: 1px solid var(--teal);
+    border-radius: 15px; /* Más redondeado */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative; /* Para el badge de prioridad */
+    font-family: 'VT323', monospace; /* Fuente para los objetivos */
+}
+
+.objective-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.objective-card.completed {
+    background-color: rgba(200, 217, 230, 0.5); /* sky-blue transparente para completado */
+    border-color: rgba(47, 65, 86, 0.3); /* navy transparente */
+    opacity: 0.8;
+}
+
+.objective-card.completed .objective-title,
+.objective-card.completed .objective-description {
+    text-decoration: line-through;
+    color: var(--dark-navy); /* Texto tachado con color más tenue */
+    opacity: 0.7;
+}
+
+.priority-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--white);
+    font-size: 0.9rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    z-index: 10;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.priority-1 {
+    background-color: var(--teal); /* Alta */
+}
+
+.priority-2 {
+    background-color: var(--navy); /* Media */
+}
+
+.priority-3 {
+    background-color: var(--accent-blue); /* Baja (usamos accent-blue o un color diferente) */
+}
+
+.objective-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--navy);
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.objective-description {
+    font-size: 1rem;
+    color: var(--dark-navy);
+    font-family: 'VT323', monospace;
+}
+
+.objective-actions .btn {
+    border-radius: 20px; /* Botones más redondeados */
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+/* Colores específicos de los botones de acción */
+.objective-actions .btn-complete {
+    background-color: var(--teal);
+    color: var(--white);
+}
+.objective-actions .btn-complete:hover {
+    background-color: var(--navy);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.objective-actions .btn-edit {
+    background-color: var(--sky-blue);
+    color: var(--navy);
+    border: 1px solid var(--teal);
+}
+.objective-actions .btn-edit:hover {
+    background-color: var(--teal);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.objective-actions .btn-delete {
+    background-color: #dc3545; /* Rojo de Bootstrap para eliminar */
+    color: var(--white);
+}
+.objective-actions .btn-delete:hover {
+    background-color: #c82333;
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* --- Estilo del formulario de agregar/editar --- */
+.add-objective-form {
+    background-color: var(--sky-blue); /* Fondo del formulario */
+    border: 1px solid var(--teal);
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    color: var(--navy);
+}
+
+.add-objective-form .form-label {
+    color: var(--navy);
+    font-weight: 600;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.add-objective-form .form-control {
+    background-color: var(--white);
+    border-color: var(--light-gray);
+    color: var(--navy);
+    font-family: 'VT323', monospace;
+}
+.add-objective-form .form-control:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 0.25rem rgba(26, 117, 159, 0.25);
+    background-color: var(--white);
+}
+
+.btn-add {
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-family: 'Pixelify Sans', sans-serif;
+}
+.btn-add:hover {
+    background-color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    color: var(--white);
+}
+
+/* Estilo para el botón de cancelar del formulario */
+.btn-secondary.btn-custom {
+    background-color: var(--beige);
+    color: var(--navy);
+    border: 1px solid var(--teal);
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Pixelify Sans', sans-serif;
+}
+.btn-secondary.btn-custom:hover {
+    background-color: var(--sky-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    color: var(--navy);
+}
+
+
+/* --- Sección de progreso --- */
+.progress-section {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.progress-circle {
+    width: 150px; /* Más grande */
+    height: 150px; /* Más grande */
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--teal) 0deg, var(--navy) var(--progress-angle, 0deg), var(--sky-blue) var(--progress-angle, 0deg));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25); /* Sombra para el círculo */
+}
+
+.progress-circle::before {
+    content: '';
+    position: absolute;
+    width: 120px; /* Tamaño del círculo interior */
+    height: 120px; /* Tamaño del círculo interior */
+    background-color: var(--white); /* Fondo del círculo interior */
+    border-radius: 50%;
+}
+
+.progress-text {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem; /* Más grande */
+    font-weight: bold;
+    color: var(--navy);
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* --- Estado vacío --- */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--dark-navy);
+    background-color: var(--sky-blue);
+    border-radius: 15px;
+    border: 1px solid var(--teal);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--teal); /* Icono con color teal */
+    opacity: 0.7;
+}
+.empty-state h4 {
+    color: var(--navy);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8rem;
+}
+.empty-state p {
+    font-size: 1.1rem;
+    color: var(--dark-navy);
+    font-family: 'VT323', monospace;
+}
+
+
+/* --- Arrastrar y soltar (Sortable.js) --- */
+.drag-handle {
+    cursor: grab;
+    color: var(--teal); /* Color del handle */
+    margin-right: 0.8rem;
+    font-size: 1.3rem; /* Más grande */
+    transition: color 0.2s ease;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+    color: var(--navy);
+}
+
+.sortable-ghost {
+    opacity: 0.5;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px dashed var(--navy);
+    box-shadow: none;
+}
+
+/* --- Variables de Color Globales --- */
+:root {
+    /* Colores primarios y de texto (ajustados a tu navbar oscuro y texto claro) */
+    --primary-dark: #212529; /* Negro oscuro del navbar */
+    --text-light: #f8f9fa; /* Blanco/gris claro para texto sobre fondos oscuros */
+    --text-dark: #343a40; /* Gris oscuro para texto general */
+
+    /* Colores de fondo */
+    --bg-light: #fefefc; /* Fondo general claro */
+    --bg-card: #ffffff; /* Fondo para tarjetas/componentes */
+
+    /* Colores para bordes y elementos secundarios */
+    --border-color: #dee2e6; /* Gris claro para bordes */
+    --secondary-light: #6c757d; /* Gris secundario para elementos generales */
+
+    /* Colores de Bootstrap sobrescritos (si es necesario) o personalizados */
+    --enfoco-green: #28a745; /* Verde para acciones de éxito/positivo */
+    --enfoco-blue: #007bff; /* Azul para información/interacción */
+    --enfoco-orange: #fd7e14; /* Naranja para advertencias/media prioridad */
+    --enfoco-red: #dc3545; /* Rojo para peligro/alta prioridad */
+    --enfoco-info-hover: #17a2b8; /* Azul cyan para botón "Ver día" */
+}
+
+/* --- Estilos Generales del Cuerpo --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente un poco más moderna */
+    background-color: var(--bg-light);
+    color: var(--text-dark); /* Color de texto por defecto */
+}
+
+/* --- Estilos de la Barra de Navegación (Navbar) --- */
+.navbar {
+    background-color: var(--primary-dark) !important; /* Asegura el color oscuro */
+    border-bottom: 1px solid var(--secondary-light) !important; /* Borde inferior sutil */
+}
+
+.custom-navbar-title {
+    color: var(--text-light); /* Color del texto "EnFoco" */
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre el logo y el texto */
+}
+
+.navbar-logo {
+    height: 30px; /* Tamaño del logo del foco */
+    width: auto;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-light); /* Color de los enlaces del navbar */
+    transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #add8e6; /* Azul claro al pasar el mouse */
+}
+
+.custom-nav-link {
+    font-weight: bold; /* Para el enlace "Mapa de energía" */
+}
+
+---
+
+/* --- Calendario Inteligente (Contenedor Principal) --- */
+.calendar-card {
+    max-width: 900px;
+    margin: 2rem auto; /* Centra y añade margen vertical */
+    background-color: var(--bg-card);
+    border-radius: 12px; /* Bordes más redondeados */
+    padding: 2.5rem; /* Más espacio interno */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    border: 1px solid var(--border-color); /* Borde sutil */
+}
+
+.calendar-card h2 {
+    color: var(--primary-dark); /* Color del título "Calendario Inteligente" */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem; /* Espacio entre el ícono 📅 y el texto */
+}
+
+/* --- Estilos del Formulario de Actividades --- */
+.form-control,
+.form-select {
+    border-radius: 8px; /* Bordes redondeados para inputs y selects */
+    border-color: var(--border-color);
+    padding: 0.75rem 1rem; /* Más padding para los campos */
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--enfoco-blue); /* Color del borde al enfocar */
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Sombra de enfoque de Bootstrap */
+    outline: none; /* Elimina el contorno predeterminado del navegador */
+}
+
+/* --- Estilos de Botones del Formulario --- */
+.btn-success {
+    background-color: var(--enfoco-green); /* Color verde personalizado */
+    border-color: var(--enfoco-green);
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease; /* Transición suave para hover */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Verde ligeramente más oscuro al pasar el mouse */
+    border-color: #1e7e34;
+    transform: translateY(-2px); /* Efecto de "levantar" al pasar el mouse */
+}
+
+.btn-outline-info {
+    color: var(--enfoco-info-hover); /* Color azul cyan para el texto del botón */
+    border-color: var(--enfoco-info-hover);
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-info:hover {
+    background-color: var(--enfoco-info-hover);
+    color: var(--text-light); /* Texto blanco al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+/* --- Estilos de la Lista de Eventos --- */
+#eventList {
+    margin-top: 2rem; /* Espacio superior para la lista */
+}
+
+.event-item {
+    padding: 1.2rem 1.5rem; /* Más padding interno */
+    border-radius: 10px; /* Bordes más redondeados */
+    margin-bottom: 1rem; /* Espacio entre cada actividad */
+    background-color: #f8f9fa; /* Fondo ligeramente gris para cada ítem */
+    border: 1px solid var(--border-color) !important; /* Borde general */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil para cada evento */
+    transition: all 0.3s ease; /* Transición suave para hover */
+}
+
+.event-item:hover {
+    transform: translateY(-3px); /* Efecto de "levantar" al pasar el mouse */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.event-item strong {
+    color: var(--primary-dark); /* Color para el nombre de la actividad */
+    font-size: 1.1rem;
+}
+
+.category-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #e9ecef; /* Gris neutro para el fondo de la etiqueta */
+    color: var(--text-dark);
+    display: inline-block;
+    margin-right: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.badge.bg-secondary {
+    background-color: var(--secondary-light) !important; /* Asegura el color del badge de Bootstrap */
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+/* --- Colores de Prioridad para Bordes (Más Visibles) --- */
+.event-item.border-danger {
+    border-left: 5px solid var(--enfoco-red) !important; /* Borde izquierdo grueso para Alta */
+}
+
+.event-item.border-warning {
+    border-left: 5px solid var(--enfoco-orange) !important; /* Borde izquierdo grueso para Media */
+}
+
+.event-item.border-success {
+    border-left: 5px solid var(--enfoco-green) !important; /* Borde izquierdo grueso para Baja */
+}
+
+.event-item.border-secondary {
+    border-left: 5px solid var(--secondary-light) !important; /* Borde izquierdo grueso para sin prioridad */
+}
+
+/* --- Botones de Acción dentro del Evento --- */
+.event-item .btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.event-item .btn-outline-primary {
+    color: var(--enfoco-blue);
+    border-color: var(--enfoco-blue);
+}
+.event-item .btn-outline-primary:hover {
+    background-color: var(--enfoco-blue);
+    color: var(--text-light);
+}
+
+.event-item .btn-outline-danger {
+    color: var(--enfoco-red);
+    border-color: var(--enfoco-red);
+}
+.event-item .btn-outline-danger:hover {
+    background-color: var(--enfoco-red);
+    color: var(--text-light);
+}
+
+/* Mensaje cuando no hay actividades */
+.eventList p.text-center {
+    color: var(--secondary-light);
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+/* --- Estilos del Modal de Confirmación --- */
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: none; /* Elimina el borde predeterminado */
+    padding: 1.5rem 2rem 0.5rem; /* Ajusta el padding */
+}
+
+.modal-title {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 1rem 2rem;
+    color: var(--text-dark);
+}
+
+.modal-footer {
+    border-top: none; /* Elimina el borde predeterminado */
+    padding: 0.5rem 2rem 1.5rem; /* Ajusta el padding */
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    border-radius: 8px;
+}
+.modal-footer .btn-danger {
+    background-color: var(--enfoco-red);
+    border-color: var(--enfoco-red);
+    border-radius: 8px;
+}
+
+/* Media Queries para Responsiveness */
+@media (max-width: 768px) {
+    .custom-title {
+        font-size: 2.2rem;
+    }
+    .custom-subtitle {
+        font-size: 1rem;
+    }
+    .wheel-area {
+        width: 250px;
+        height: 250px;
+    }
+    .wheel-container {
+        border-width: 6px;
+    }
+    .wheel-segment {
+        font-size: 0.7rem;
+        padding: 3px;
+    }
+    .pointer {
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 30px solid var(--accent-blue);
+        top: -35px;
+    }
+    #result {
+        font-size: 1.2rem;
+    }
+    .btn.custom-btn-lg {
+        font-size: 1rem;
+        padding: 0.8rem 2rem;
+    }
+    .btn-add, .btn-secondary.btn-custom, .btn-outline-info {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    .custom-title-sm {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-title {
+        font-size: 1.8rem;
+    }
+    .wheel-area {
+        width: 200px;
+        height: 200px;
+    }
+    .wheel-container {
+        border-width: 5px;
+    }
+    .wheel-segment {
+        font-size: 0.65rem;
+    }
+    .pointer {
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 25px solid var(--accent-blue);
+        top: -30px;
+    }
+    #result {
+        font-size: 1rem;
+    }
+    .btn.custom-btn-lg {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.8rem;
+    }
+    .custom-title-sm {
+        font-size: 1.3rem;
+    }
+}
+
+/* --- Media Queries (Responsiveness) específicas para la página de Objetivos --- */
+@media (max-width: 992px) {
+    .progress-text {
+        font-size: 2rem;
+    }
+    .objective-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .progress-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .progress-circle::before {
+        width: 80px;
+        height: 80px;
+    }
+    .progress-text {
+        font-size: 1.8rem;
+    }
+    .objective-card {
+        padding: 1.2rem;
+    }
+    .objective-title {
+        font-size: 1.1rem;
+    }
+    .objective-actions {
+        flex-direction: column; /* Apilar botones en pantallas pequeñas */
+        align-items: stretch;
+    }
+    .objective-actions .btn {
+        width: 100%; /* Ocupar todo el ancho */
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+    .empty-state {
+        padding: 2rem 0.8rem;
+    }
+    .empty-state i {
+        font-size: 3rem;
+    }
+    .empty-state h4 {
+        font-size: 1.5rem;
+    }
+    .empty-state p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-page-card {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    .progress-text {
+        font-size: 1.5rem;
+    }
+    .objective-title {
+        font-size: 1rem;
+    }
+}
+/*termina objetivos diarios estilos generales*/
+
+@keyframes fadeInText {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vibrar {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+.vibrar {
+    animation: vibrar 0.6s ease-in-out 3;
+}
+
+
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Media Queries (ajustadas para los nuevos tamaños de fuente) */
 @media (max-width: 992px) {
-  .custom-title {
-    font-size: 2.8rem;
-  }
-  .custom-subtitle {
-    font-size: 1.2rem;
-  }
-  .card-title {
-    font-size: 1.6rem;
-  }
-  .card-body .fa-2x {
-    font-size: 3rem;
-  }
+    .custom-title {
+        font-size: 3.2rem;
+    }
+    .custom-subtitle {
+        font-size: 1.4rem;
+    }
+    .card-title {
+        font-size: 1.8rem;
+    }
+    .card-body .fa-2x {
+        font-size: 3.5rem;
+    }
+    #timer {
+        font-size: 4rem;
+    }
 }
 
 @media (max-width: 768px) {
-  .custom-title {
-    font-size: 2.2rem;
-  }
-  .custom-subtitle {
-    font-size: 1.1rem;
-  }
-  .card-title {
-    font-size: 1.4rem;
-  }
-  .card-text {
-    font-size: 1rem;
-  }
-  .card-body .fa-2x {
-    font-size: 2.5rem;
-  }
-  .custom-btn-lg {
-    font-size: 1.1rem;
-    padding: 0.8rem 2rem;
-  }
-  .navbar-brand {
-    font-size: 1.6rem;
-  }
+    .custom-title {
+        font-size: 2.5rem;
+    }
+    .custom-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+    }
+    .card-title {
+        font-size: 1.6rem;
+    }
+    .card-text {
+        font-size: 1.1rem;
+    }
+    .card-body .fa-2x {
+        font-size: 3rem;
+    }
+    .custom-btn-lg {
+        font-size: 1.2rem;
+        padding: 0.9rem 2.2rem;
+    }
+    .navbar-brand {
+        font-size: 1.8rem;
+    }
+    /* AJUSTE MEDIA QUERY PARA EL LOGO */
+    .navbar-logo {
+        height: 30px; /* Tamaño más pequeño en móviles */
+        margin-right: 8px;
+    }
+    /* FIN AJUSTE MEDIA QUERY LOGO */
+    #timer {
+        font-size: 3.5rem;
+    }
 }
 
 @media (max-width: 576px) {
-  .custom-title {
-    font-size: 1.8rem;
-  }
-  .custom-subtitle {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  .custom-btn-lg {
-    font-size: 1rem;
-    padding: 0.7rem 1.8rem;
-  }
-  .navbar-brand {
-    font-size: 1.4rem;
-  }
-  .card-body .fa-2x {
-    font-size: 2rem;
-  }
-  .card-title {
-    font-size: 1.2rem;
-  }
+    .custom-title {
+        font-size: 2rem;
+    }
+    .custom-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    .custom-btn-lg {
+        font-size: 1.1rem;
+        padding: 0.8rem 2rem;
+    }
+    .navbar-brand {
+        font-size: 1.6rem;
+    }
+    .card-body .fa-2x {
+        font-size: 2.5rem;
+    }
+    .card-title {
+        font-size: 1.4rem;
+    }
+    .card-text {
+        font-size: 1rem;
+    }
+    .main-content-index {
+        padding: 50px 15px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+    /* AJUSTE MEDIA QUERY PARA EL LOGO */
+    .navbar-logo {
+        height: 25px; /* Aún más pequeño en pantallas muy chicas */
+        margin-right: 5px;
+    }
+    /* FIN AJUSTE MEDIA QUERY LOGO */
+    #timer {
+        font-size: 3rem;
+    }
 }
