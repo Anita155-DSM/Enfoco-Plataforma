@@ -58,12 +58,31 @@ h1 {
     letter-spacing: 1px; /* Espaciado entre letras */
     transition: color 0.3s ease;
     font-family: 'VT323', monospace; /* Fuente pixelada para el nombre de la marca */
+    
+    /* ESTILOS AGREGADOS PARA ALINEAR EL LOGO */
+    display: flex; /* Convierte el enlace en un flex container */
+    align-items: center; /* Centra verticalmente los elementos dentro del enlace */
+    line-height: 1; /* Asegura que el texto y la imagen se alineen bien */
 }
 
 .navbar-brand:hover {
     color: var(--white) !important; /* Cambia de color al pasar el ratón */
     transform: scale(1.02); /* Ligero zoom */
 }
+
+/* ESTILOS AGREGADOS PARA EL LOGO DENTRO DE LA NAVBAR */
+.navbar-logo {
+    height: 40px; /* Tamaño del logo. Ajusta este valor si necesitas un tamaño diferente */
+    margin-right: 10px; /* Espacio entre el logo y el texto "EnFoco" */
+    vertical-align: middle; /* Para alinear verticalmente con el texto */
+    transition: transform 0.3s ease; /* Pequeña animación al pasar el ratón */
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón sobre la marca */
+}
+/* FIN DE ESTILOS AGREGADOS PARA EL LOGO */
+
 
 .nav-link {
     color: var(--white) !important;
@@ -288,7 +307,7 @@ h1 {
 /* Estilos generales de las tarjetas - MODIFICADOS para mejorar la legibilidad del texto sobre las imágenes */
 .card {
     background-color: var(--sky-blue); /* Este color de fondo será sobrescrito por la imagen en tarjetas específicas */
-    color: var(--navy); /* Color de texto base, puede ser sobrescrito */
+    color: var(--navy); /* Color de texto base para tarjetas sin imagen */
     border: 1px solid var(--teal);
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
@@ -296,12 +315,13 @@ h1 {
     overflow: hidden;
     position: relative;
     height: 100%;
-    /* Agrega un degradado semitransparente oscuro para que el texto sea legible sobre la imagen */
-    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%); /* Capa oscura */
+    /* El degradado oscuro se aplica a todas las tarjetas que tienen imagen de fondo */
+    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%);
     background-repeat: no-repeat;
-    background-size: cover; /* Asegura que la imagen cubra toda la tarjeta */
-    background-position: center center; /* Centra la imagen */
-    color: var(--white); /* Cambia el color del texto a blanco para un mejor contraste */
+    background-size: cover;
+    background-position: center center;
+    /* QUITAMOS el color blanco general de texto aquí, será sobreescrito por específico */
+    /* color: var(--white); */
 }
 
 .card:hover {
@@ -321,19 +341,21 @@ h1 {
 }
 
 .card-body .fa-2x {
-    color: var(--white); /* Los íconos también deberían ser blancos para el contraste */
+    /* QUITAMOS el color blanco general de iconos aquí */
+    /* color: var(--white); */
     font-size: 4rem;
     margin-bottom: 25px;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover .card-body .fa-2x {
-    color: var(--sky-blue); /* Cambia el color del ícono al pasar el mouse */
+    color: var(--sky-blue); /* Cambia el color del ícono al pasar el mouse (este sí se mantiene) */
     transform: scale(1.15);
 }
 
 .card-title {
-    color: var(--white); /* El título de la tarjeta también en blanco */
+    /* QUITAMOS el color blanco general de título aquí */
+    /* color: var(--white); */
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 18px;
@@ -341,39 +363,79 @@ h1 {
 }
 
 .card-text {
-    color: var(--sky-blue); /* El texto de la tarjeta un poco más claro para la legibilidad */
+    /* QUITAMOS el color sky-blue general de texto aquí */
+    /* color: var(--sky-blue); */
     font-size: 1.2rem;
     line-height: 1.8;
     font-family: 'VT323', monospace;
 }
 
 /* --- Fondos específicos de las tarjetas --- */
-.card-calendar .card {
-  background-image:
-    linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
-    url('../assets/img/calendario.png');
+/* Usamos los IDs para máxima especificidad */
+#calendarCard {
+    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
+                      url('../assets/img/calendario.png'); /* Ruta relativa a style.css */
+    background-size: cover;
+    background-position: center;
+    color: var(--navy); /* Texto de la tarjeta Calendario en azul profundo */
 }
-.card-objectives .card {
-  background-image:
-    linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
-    url("/EnFoco-FrontEnd/assets/img/obj-.jpg")
+#calendarCard .card-body .fa-2x,
+#calendarCard .card-title,
+#calendarCard .card-text {
+    color: var(--navy); /* Icono, título y texto de Calendario en azul profundo */
 }
 
 
-/* Regla para las tarjetas que NO tienen una imagen específica (mantienen el color de fondo original) */
-.card:not(.card-calendar):not(.card-objectives) {
-    background-color: var(--sky-blue); /* Color de fondo predeterminado */
-    background-image: none; /* Asegura que no tengan ninguna imagen de fondo de la regla general */
-    color: var(--navy); /* Color de texto predeterminado */
+#objectivesCard {
+    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
+                      url('../assets/img/obj-.jpg'); /* O obj-.png, según la extensión real de tu archivo */
+    background-size: cover;
+    background-position: center;
+    color: var(--navy); /* Texto de la tarjeta Objetivos en azul profundo */
+}
+#objectivesCard .card-body .fa-2x,
+#objectivesCard .card-title,
+#objectivesCard .card-text {
+    color: var(--navy); /* Icono, título y texto de Objetivos en azul profundo */
+}
+
+/* Nuevas reglas para las tarjetas "Técnicas de enfoque" y "Mapa de energía" */
+/* ASUMO que no tienen una imagen de fondo específica, solo quieres cambiar el color de texto e icono */
+/* Si tienen una imagen de fondo y quieres que sea oscura, estas reglas también aplicarían */
+.card-mindfulness-inner { /* Nueva clase para Técnicas de enfoque */
+    color: var(--navy); /* Texto de la tarjeta Técnicas de enfoque en azul profundo */
+}
+.card-mindfulness-inner .card-body .fa-2x,
+.card-mindfulness-inner .card-title,
+.card-mindfulness-inner .card-text {
+    color: var(--navy); /* Icono, título y texto en azul profundo */
+}
+
+.card-energy-inner { /* Nueva clase para Mapa de energía */
+    color: var(--navy); /* Texto de la tarjeta Mapa de energía en azul profundo */
+}
+.card-energy-inner .card-body .fa-2x,
+.card-energy-inner .card-title,
+.card-energy-inner .card-text {
+    color: var(--navy); /* Icono, título y texto en azul profundo */
+}
+
+
+/* Regla para las tarjetas que NO tienen una imagen específica o ID (mantienen el color de fondo original, si lo tienen) */
+/* He actualizado los selectores para excluir las nuevas clases "inner" también */
+.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) {
+    background-color: var(--sky-blue); /* Color de fondo predeterminado si no hay imagen */
+    background-image: none; /* ASEGURA que no tengan ninguna imagen de fondo general aquí */
+    color: var(--navy); /* Color de texto predeterminado para estas tarjetas sin imagen */
 }
 /* Aseguramos los colores de texto y íconos para las tarjetas sin imagen */
-.card:not(.card-calendar):not(.card-objectives) .card-body .fa-2x {
-    color: var(--teal);
+.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) .card-body .fa-2x {
+    color: var(--teal); /* Por ejemplo, si quieres que estas tengan un teal claro */
 }
-.card:not(.card-calendar):not(.card-objectives) .card-title {
+.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) .card-title {
     color: var(--navy);
 }
-.card:not(.card-calendar):not(.card-objectives) .card-text {
+.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) .card-text {
     color: var(--dark-navy);
 }
 
@@ -414,7 +476,7 @@ h1 {
 
 /* --- Otras secciones (mantenemos tus estilos existentes pero las ajustamos ligeramente) --- */
 
-/* Calendario */
+/* Calendario (TABLA, no la CARD) */
 .table th,
 .table td {
     height: 90px; /* Más alto */
@@ -437,7 +499,7 @@ h1 {
     background-color: var(--light-teal); /* Resaltar celdas al pasar el ratón */
 }
 
-/* Mapa de energía */
+/* Mapa de energía (TABLA, no la CARD) */
 .energy-map td {
     cursor: pointer;
     background-color: var(--sky-blue);
@@ -465,7 +527,7 @@ h1 {
     color: var(--white);
 }
 
-/* Objetivos y tareas */
+/* Objetivos y tareas (LISTA, no la CARD) */
 .list-group-item {
     background-color: var(--sky-blue);
     color: var(--navy);
@@ -588,6 +650,12 @@ h1 {
     .navbar-brand {
         font-size: 1.8rem;
     }
+    /* AJUSTE MEDIA QUERY PARA EL LOGO */
+    .navbar-logo {
+        height: 30px; /* Tamaño más pequeño en móviles */
+        margin-right: 8px;
+    }
+    /* FIN AJUSTE MEDIA QUERY LOGO */
     #timer {
         font-size: 3.5rem;
     }
@@ -622,6 +690,12 @@ h1 {
         border-bottom-left-radius: 40px;
         border-bottom-right-radius: 40px;
     }
+    /* AJUSTE MEDIA QUERY PARA EL LOGO */
+    .navbar-logo {
+        height: 25px; /* Aún más pequeño en pantallas muy chicas */
+        margin-right: 5px;
+    }
+    /* FIN AJUSTE MEDIA QUERY LOGO */
     #timer {
         font-size: 3rem;
     }

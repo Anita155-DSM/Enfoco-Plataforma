@@ -19,7 +19,10 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg custom-navbar px-4">
-    <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/index.html">EnFoco</a>
+    <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/index.html">
+      <img src="/EnFoco-FrontEnd/assets/img/Foco-EnFoco.png" alt="Logo EnFoco" class="navbar-logo">
+      EnFoco
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -55,8 +58,8 @@
     <!-- Tarjetas de funcionalidades -->
     <section class="row row-cols-1 row-cols-md-2 g-4 mb-5 section-features">
 
-      <div class="col fade-in" style="animation-delay: 0.9s;">
-        <div class="card h-100 text-light border-info shadow-sm card-calendar">
+      <div class="col fade-in card-calendar" style="animation-delay: 0.9s;">
+        <div class="card h-100 text-light border-info shadow-sm card-calendar-inner" id="calendarCard">
           <div class="card-body">
             <i class="fa-solid fa-calendar-days fa-2x text-info mb-3"></i>
             <h5 class="card-title text-info">Calendario inteligente</h5>
@@ -66,8 +69,8 @@
         </div>
       </div>
 
-      <div class="col fade-in" style="animation-delay: 1.2s;">
-        <div class="card h-100 text-light border-info shadow-sm card-objectives">
+      <div class="col fade-in card-objectives" style="animation-delay: 1.2s;">
+        <div class="card h-100 text-light border-info shadow-sm card-objectives-inner" id="objectivesCard">
           <div class="card-body">
             <i class="fa-solid fa-bullseye fa-2x text-info mb-3"></i>
             <h5 class="card-title text-info">Objetivos diarios</h5>
@@ -76,24 +79,24 @@
         </div>
       </div>
 
-      <div class="col fade-in" style="animation-delay: 1.5s;">
-        <div class="card h-100 text-light border-info shadow-sm">
+      <div class="col fade-in card-mindfulness" style="animation-delay: 1.5s;">
+        <div class="card h-100 text-light border-info shadow-sm card-mindfulness-inner">
           <div class="card-body">
-            <i class="fa-solid fa-stopwatch fa-2x text-info mb-3"></i>
+            <i class="fa-solid fa-brain fa-2x text-info mb-3"></i>
             <h5 class="card-title text-info">Técnicas de enfoque</h5>
-            <p class="card-text">Utilizá temporizadores tipo Pomodoro para estudiar con más foco y menos distracciones.
-            </p>
+            <p class="card-text">Aprendé y practicá métodos probados para mejorar tu concentración y reducir
+              distracciones.</p>
           </div>
         </div>
       </div>
 
-      <div class="col fade-in" style="animation-delay: 1.8s;">
-        <div class="card h-100 text-light border-info shadow-sm">
+      <div class="col fade-in card-energy" style="animation-delay: 1.8s;">
+        <div class="card h-100 text-light border-info shadow-sm card-energy-inner">
           <div class="card-body">
-            <i class="fa-solid fa-battery-full fa-2x text-info mb-3"></i>
+            <i class="fa-solid fa-bolt fa-2x text-info mb-3"></i>
             <h5 class="card-title text-info">Mapa de energía</h5>
-            <p class="card-text">Registrá tus horarios de mayor concentración para organizar tu día según tu ritmo
-              personal.</p>
+            <p class="card-text">Identificá tus momentos de mayor y menor energía para optimizar tu jornada productiva.
+            </p>
           </div>
         </div>
       </div>
