@@ -1,4 +1,4 @@
-import { Objective } from "../models/Objective.model,js";
+import { Objective } from "../models/Objective.model.js";
 
 export const createObjective = async (req, res) => {
     try {
