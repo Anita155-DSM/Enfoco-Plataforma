@@ -1,10 +1,17 @@
 /* --- Definición para Bitcount Grid Double --- */
 /* Asegúrate de que la ruta URL sea correcta según donde guardaste el archivo TTF */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 @font-face {
     font-family: 'Bitcount Grid Double'; /* Este es el nombre que usarás en font-family */
     src: url('../assets/fonts/BitcountGridDouble-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+*{
+    cursor: url(../assets/img/dedito.png),auto !important;
+    font-family:'Montserrat', sans-serif; 
+
 }
 #bodyIndex {
   background: url('/EnFoco-FrontEnd/assets/img/paisaje11.gif') no-repeat center center fixed;
@@ -23,11 +30,11 @@
 
 /* --- Variables --- */
 :root {
-  --teal: #1A759F;
-  --navy: #102542;
-  --sky-blue: #BEE9E8;
-  --accent-blue: #56CFE1;
-  --beige: #FAF3DD;
+  --teal: #02000b;
+  --navy: #060042;
+  --sky-blue: #054b4a;
+  --accent-blue: #000000;
+  --beige: #221a01;
   --white: #FFFFFF;
   --dark-navy-alpha: rgba(16, 37, 66, 0.3);
   --light-gray: #ccc;
@@ -36,6 +43,7 @@
 
 /* --- Reset --- */
 * {
+    cursor: url(../assets/img/dedito.png) !important;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -60,15 +68,15 @@ h1 {
 
 /* --- Navbar --- */
 .navbar {
-    background-color: var(--navy) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para profundidad */
+    background-color: rgb(0, 5, 56) !important;
+    box-shadow: 0 4px 12px rgba(23, 0, 66, 0.722); /* Sombra más pronunciada para profundidad */
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
 .navbar-brand {
     font-size: 2.2rem; /* Un poco más grande */
-    color: var(--sky-blue) !important;
+    color: var(--sky-blue);
     font-weight: 700; /* Más negrita */
     letter-spacing: 1px; /* Espaciado entre letras */
     transition: color 0.3s ease;
@@ -306,7 +314,7 @@ h1 {
 }
 
 .custom-subtitle {
-    color: var(--teal);
+    color: white;
     font-size: 1.6rem; /* Subtítulo más legible */
     max-width: 900px; /* Limita el ancho para mejor lectura */
     margin: 0 auto 3rem auto; /* Centra y añade más margen inferior */
@@ -938,8 +946,7 @@ body {
 
 /* --- Estilos de la Barra de Navegación (Navbar) --- */
 .navbar {
-    background-color: var(--primary-dark) !important; /* Asegura el color oscuro */
-    border-bottom: 1px solid var(--secondary-light) !important; /* Borde inferior sutil */
+    background-color: rgb(0, 5, 56) !important; /* Asegura el color oscuro */
 }
 
 .custom-navbar-title {
