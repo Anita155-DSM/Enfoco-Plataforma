@@ -14,19 +14,53 @@
 #bodyIndex {
   background: url(../assets/img/paisaje11.gif) no-repeat center center fixed ;
   background-size: cover;
+
 }
+/*#titleIndex{
+ color: #fff704
+}*/
+#queOfreceEnfoco{
+color:#fff704
+}
+
 #indexMain.main-content-index {
   background: #ddc3c307 !important;
 }
 
-
+#bodyIndexUser {
+  background: url(../assets/img/paissje22.jpg) no-repeat center center fixed ;
+  background-size: cover;
+}
+#titleIndexUser{
+   color:#ffffff !important
+}
+#comoFuncionaModoEnfoque{
+    color:#ffffff
+}
+#pomodoro{
+  background: url(../assets/img/pomodoro.gif) no-repeat center center fixed ;
+  background-size: cover; 
+}
+#energiaTitle{
+color:fff704  !important
+}
+#titleRuleta{
+    color: #fff704 !important;
+}
+#ruletaBody{
+  background: url(../assets/img/decisiones.gif) no-repeat center center fixed ;
+  background-size: cover; 
+}
 .section-features .card {
   background-color: rgba(0, 0, 0, 0.35) !important;
   border-color: rgb(208, 8, 8) !important;
-  color: #fff; /* texto blanco */
+  color: #682828; /* texto blanco */
 }
 
 
+diasLetras{
+   color: #fff704 !important;
+}
 
 
 
@@ -697,6 +731,27 @@ h1 {
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     z-index: 10;
     font-family: 'Pixelify Sans', sans-serif;
+}
+
+#motivacion{
+    color: #f2fa0b !important;
+
+}
+#timer{
+    color: #f2fa0b !important;
+}
+.custom-subtitle {
+    /* ...otros estilos... */
+    margin-bottom: 0.5rem; /* o menos */
+}
+.calendario{
+    background-color: #080436f2 !important;
+}
+.text-center{
+    color: #f2fa0bd5 !important;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .priority-1 {
@@ -1430,5 +1485,286 @@ h1 {
     /* FIN AJUSTE MEDIA QUERY LOGO */
     #timer {
         font-size: 3rem;
+    }
+}
+
+/* --- INICIO: ESTILOS PARA LA RULETA DE RESPONSABILIDADES --- */
+.roulette-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem 0;
+    font-family: 'Pixelify Sans', 'Segoe UI', sans-serif;
+    margin: auto;
+}
+
+.roulette-page-container h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    color: var(--navy);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+}
+
+.roulette-page-container .roulette-container {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roulette-page-container #roulette-canvas {
+    transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.roulette-page-container .roulette-pointer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 40px solid var(--enfoco-red);
+    z-index: 10;
+    filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.5));
+}
+
+.roulette-page-container .spin-button {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: var(--teal);
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Pixelify Sans', sans-serif;
+    border: 5px solid var(--white);
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.roulette-page-container .spin-button:hover {
+    background-color: var(--navy);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.roulette-page-container .spin-button:active {
+    transform: scale(0.95);
+}
+
+.roulette-page-container .result-display-glass,
+.roulette-page-container .tasks-manager-glass {
+    width: 100%;
+    max-width: 600px;
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.roulette-page-container .result-display-glass p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    font-family: 'VT323', monospace;
+}
+
+.roulette-page-container .tasks-manager-glass h2 {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+}
+
+.roulette-page-container .add-task-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.roulette-page-container #new-task-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    font-family: 'VT323', monospace;
+    background-color: var(--sky-blue);
+    border: 1px solid var(--teal);
+    border-radius: 12px;
+    color: var(--navy);
+    font-size: 1rem;
+}
+
+.roulette-page-container #new-task-input:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 0.25rem rgba(16, 37, 66, 0.35);
+    background-color: var(--white);
+}
+
+.roulette-page-container #add-task-button {
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.roulette-page-container #add-task-button:hover {
+    background-color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.roulette-page-container .tasks-list {
+    list-style: none;
+    text-align: left;
+    padding-left: 0;
+}
+
+.roulette-page-container .tasks-list li {
+    background-color: var(--sky-blue);
+    color: var(--navy);
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    word-break: break-word;
+}
+
+.roulette-page-container .tasks-list li:hover {
+    background-color: var(--beige);
+}
+
+.roulette-page-container .task-buttons button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.2s, transform 0.2s ease;
+}
+
+.roulette-page-container .edit-btn { color: var(--teal); }
+.roulette-page-container .delete-btn { color: #dc3545; }
+
+.roulette-page-container .edit-btn:hover,
+.roulette-page-container .delete-btn:hover {
+    transform: scale(1.2);
+}
+
+.roulette-page-container .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(16, 37, 66, 0.6);
+}
+
+.roulette-page-container .modal-content {
+    background-color: var(--beige);
+    margin: 15% auto;
+    padding: 25px;
+    border: 1px solid var(--teal);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.roulette-page-container .modal-content h2 {
+    color: var(--navy);
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.roulette-page-container .close-button {
+    color: var(--navy);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.roulette-page-container .close-button:hover,
+.roulette-page-container .close-button:focus {
+    color: var(--teal);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.roulette-page-container #edit-task-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'VT323', monospace;
+    background-color: var(--sky-blue);
+    border: 1px solid var(--teal);
+    border-radius: 12px;
+    color: var(--navy);
+}
+
+.roulette-page-container #save-edit-button {
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    font-family: 'Pixelify Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.roulette-page-container #save-edit-button:hover {
+    background-color: var(--navy);
+}
+
+/* --- Media Queries para la Ruleta --- */
+@media (max-width: 576px) {
+    .roulette-page-container .roulette-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .roulette-page-container .spin-button {
+        width: 80px;
+        height: 80px;
+        font-size: 1.2rem;
+        border-width: 3px;
+    }
+
+    .roulette-page-container .roulette-pointer {
+        border-left-width: 20px;
+        border-right-width: 20px;
+        border-top-width: 30px;
     }
 }

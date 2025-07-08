@@ -6,8 +6,19 @@
   <title>Modo Enfoque | EnFoco</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/EnFoco-FrontEnd/cs/style.css" />
+    <link rel="icon" type="img" href="../EnFoco-FrontEnd/assets/img/Foco-EnFoco.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/EnFoco-FrontEnd/cs/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=VT323&display=swap"
+    rel="stylesheet">
 </head>
-<body class="custom-login-body d-flex flex-column min-vh-100">
+<body class="custom-login-body d-flex flex-column min-vh-100" id="pomodoro">
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg custom-navbar px-4">
@@ -30,23 +41,23 @@
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <main class="container d-flex flex-column align-items-center justify-content-center flex-grow-1 py-5">
-    <div class="text-center mb-4">
+   <main class="container d-flex flex-column align-items-center justify-content-center flex-grow-1 py-3">
+    <div class="text-center">
       <h1 class="custom-title">Modo Enfoque</h1>
       <p class="custom-subtitle">Te presentamos: "Modo Enfoque". Está basado en la técnica pomodoro, misma estructura, pero con un toque diferente de motivación. Queremos verte crecer, es el motivo principal de nuestro Sitio Web. ¡Creemos en ti! </p>
     </div>
 
-    <div class="card login-card text-center p-4" style="max-width: 400px; width: 100%;">
-      <h2 class="mb-3 text-info">Pomodoro, nuestro compañero de estudio.</h2>
+    <div class="card login-card text-center p-4" style="max-width: 600px; width: 100%;">
+      <h2 class="mb-4 text-info">Pomodoro, nuestro compañero de estudio.</h2>
       
-      <div id="timer" class="display-4 fw-bold mb-4" style="color: var(--navy);">25:00</div>
+      <div id="timer" class="display-4 fw-bold mb-4" >25:00</div>
 
       <div class="d-flex justify-content-between">
         <button id="startBtn" class="custom-btn-lg">Iniciar</button>
-        <button id="resetBtn" class="custom-btn-lg" style="background-color: var(--sky-blue); color: var(--navy);">Reiniciar</button>
+        <button id="resetBtn" class="custom-btn-lg">Reiniciar</button>
       </div>
 
-      <div class="mt-4" id="motivacion" style="color: var(--dark-navy); font-weight: 500;">
+      <div class="mt-4" id="motivacion" style="font-weight: 500;">
         Enfocate, que vos podés. ¡Arrasa estos 25 minutos!
       </div>
 

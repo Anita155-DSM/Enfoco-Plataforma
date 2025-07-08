@@ -22,13 +22,13 @@
     .energia-baja { background-color: #dc3545 !important; color: white; }
   </style>
   <style>
-    /* Si no tenés estilos definidos en tu CSS */
+    /* Si no hay estilos definidos en tu CSS */
     .energia-alta { background-color: #28a745 !important; color: white; }
     .energia-media { background-color: #ffc107 !important; color: black; }
     .energia-baja { background-color: #dc3545 !important; color: white; }
   </style>
 </head>
-<body class="custom-body d-flex flex-column min-vh-100">
+<body class="custom-body d-flex flex-column min-vh-100" style="background-color: #080436f2;">
 
   <nav class="navbar navbar-expand-lg custom-navbar px-4">
     <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/dashboard.html">
@@ -50,14 +50,13 @@
   </nav>
 
   <main class="container my-5">
-    <h2 class="text-info text-center mb-4">Mapa de Energía Diaria</h2>
+    <h2 class="text-info text-center mb-4" id="energiaTitle">Mapa de Energía Diaria</h2>
+    <p class="text-center" id="energialetra">Hacé clic en cada celda para registrar tu nivel de energía durante el día.</p>
 
-    <p class="text-center">Hacé clic en cada celda para registrar tu nivel de energía durante el día.</p>
-
-    <div class="table-responsive">
+    <div class="table-responsive" style="background-color: #443b58;">
       <table class="table table-bordered text-center align-middle energy-map">
-        <thead class="table-secondary text-dark">
-          <tr>
+        <thead class="table-secondary" >
+          <tr id="diasLetras">
             <th>Hora</th>
             <th>Lunes</th>
             <th>Martes</th>
@@ -66,7 +65,7 @@
             <th>Viernes</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="color: black;">
           <tr>
             <th>08:00 - 10:00</th>
             <td data-energy></td>
@@ -94,6 +93,9 @@
         </tbody>
       </table>
     </div>
+        <p class="text-center">🔴 Color rojo: baja energía y concentración durante el dia</p>
+    <p class="text-center">🟡 Color amarillo: energia media durante el dia, concentración moderada.</p>
+    <p class="text-center">🟢 Color verde: alta energía y concentración durante el dia.</p>
   </main>
 
   <footer class="custom-footer">
