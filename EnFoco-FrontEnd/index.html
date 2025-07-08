@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EnFoco - Inicia Sesión</title>
+  <link rel="icon" type="img" href="../EnFoco-FrontEnd/assets/img/Foco-EnFoco.png">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/EnFoco-FrontEnd/cs/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -15,8 +17,13 @@
     rel="stylesheet">
 </head>
 
+<body class="custom-body d-flex flex-column min-vh-100" id="bodyIndex">
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg custom-navbar px-4">
-    <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/indexUser.html">EnFoco</a>
+    <a class="navbar-brand fw-bold custom-navbar-title" href="/EnFoco-FrontEnd/index.html">
+      <img src="/EnFoco-FrontEnd/assets/img/Foco-EnFoco.png" alt="Logo EnFoco" class="navbar-logo">
+      EnFoco
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,16 +35,31 @@
       </ul>
     </div>
   </nav>
-  <main class="container text-center mt-4 flex-grow-1 d-flex flex-column justify-content-center align-items-center main-content-index">
+
+  <!-- Contenido principal -->
+  <main class="container text-center mt-4 flex-grow-1 d-flex flex-column justify-content-center align-items-center main-content-index bg-transparent" id="indexMain">
     <h1 class="display-4 fw-bold custom-title mb-3 fade-in">¡Bienvenido a EnFoco!</h1>
-    <p class="lead mb-4 custom-subtitle fade-in" style="animation-delay: 0.3s;">Gestioná tu tiempo, optimizá tus tareas y aumentá tu productividad. Descubrí todas las funcionalidades pensadas para estudiantes como vos.</p>
-    <a href="/EnFoco-FrontEnd/login.html" class="custom-btn-lg mb-5 fade-in" style="animation-delay: 0.6s;">¡Comenzá aquí!</a>
+    <p class="lead mb-4 custom-subtitle fade-in" style="animation-delay: 0.3s;">
+      Gestioná tu tiempo, optimizá tus tareas y aumentá tu productividad. Descubrí todas las funcionalidades pensadas
+      para estudiantes como vos.
+    </p>
+    <a href="/EnFoco-FrontEnd/login.html" class="custom-btn-lg mb-5 fade-in" style="animation-delay: 0.6s;">¡Comenzá
+      aquí!</a>
+
     <img src="/EnFoco-FrontEnd/assets/img/index-v.png" alt="En proceso"
       style="max-width: 300px; width: 100%; height: auto; animation-delay: 0.9s;" />
+
+    <!-- Subtítulo fuera del section para no romper la grilla -->
+    <h3 class="display-4 mt-5 fw-bold custom-title mb-3 fade-in">¿Qué te ofrece EnFoco?</h3>
+    <p class="lead text fade-in text-center" style="animation-delay: 0.3s;">
+      Herramientas diseñadas para mejorar tu organización y aumentar tu productividad.
+    </p>
+    <!-- Tarjetas de funcionalidades -->
+    <!-- Tarjetas de funcionalidades -->
     <section class="row row-cols-1 row-cols-md-2 g-4 mb-5 section-features">
-  <h2 class="display-4 mt-5 fw-bold custom-title mb-3 fade-in">¿Qué te ofrece EnFoco? ¡Seguí leyendo, enterate y conocenos!</h2>
-      <div class="col fade-in" style="animation-delay: 0.9s;">
-        <div class="card h-100 text-light border-info shadow-sm">
+
+      <div class="col fade-in card-calendar" style="animation-delay: 0.9s;">
+        <div class="card h-100 text-light border-info shadow-sm card-calendar-inner" id="calendarCard">
           <div class="card-body">
             <i class="fa-solid fa-calendar-days fa-2x text-info mb-3"></i>
             <h5 class="card-title text-info">Calendario inteligente</h5>
@@ -78,14 +100,13 @@
           </div>
         </div>
       </div>
-
     </section>
   </main>
   <!-- Sección "¿Quiénes somos?" -->
-  <section id="quienes-somos" class="py-5 bg-light">
+  <section id="quienes-somos" class="py-5">
     <div class="container">
       <div class="text-center">
-        <img src="/EnFoco-FrontEnd/assets/img/equipo-enfoco.jpeg" alt="En proceso"
+        <img src="/EnFoco-FrontEnd/assets/img/equipo-enfoco-removebg-preview.png" alt="En proceso"
           style="max-width: 300px; width: 100%; height: auto; animation-delay: 0.9s;" />
       </div>
       <h2 class="text-center mb-4">¿Quiénes somos?</h2>
@@ -104,33 +125,10 @@
   </section>
 
 
-  <!-- Footer -->  <!-- Sección "¿Quiénes somos?" -->
-<section id="quienes-somos" class="py-5 bg-light">
-  <div class="container">
-<div class="text-center">
-  <img src="/EnFoco-FrontEnd/assets/equipo-enfoco.png" alt="En proceso"
-       style="max-width: 300px; width: 100%; height: auto; animation-delay: 0.9s;" />
-</div>
-    <h2 class="text-center mb-4">¿Quiénes somos?</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <p class="lead text-center">
-          Somos un equipo de estudiantes comprometidos a ayudar a los estudiantes del nivel terciario a gestionar su tiempo de una mejor manera y para así también mejorar su productividad.
-        </p>
-        <p class="text-center">
-          Pronto se vienen más funcionalidades ¡Atentos!
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
   <!-- Footer -->
   <footer class="custom-footer">
     <p>&copy; 2025 EnFoco. Todos los derechos reservados.</p>
   </footer>
-  <!-- Scripts -->
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/EnFoco-FrontEnd/js/main.js"></script>

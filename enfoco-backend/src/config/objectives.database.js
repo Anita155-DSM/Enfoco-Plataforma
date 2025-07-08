@@ -21,3 +21,4 @@ export const startObjectiveDB = async () => {
         console.log("Error en la conexion con la base de datos", error)
     }
 };
+export default objectiveSequelize;

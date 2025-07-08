@@ -9,40 +9,29 @@
 }
 *{
     cursor: url(../assets/img/dedito.png),auto !important;
-    font-family:'Montserrat', sans-serif; 
 
 }
 #bodyIndex {
-  background: url(../assets/img/paisaje11.gif) no-repeat center center fixed !important;
+  background: url(../assets/img/paisaje11.gif) no-repeat center center fixed ;
   background-size: cover;
 }
 #indexMain.main-content-index {
-  background: #ffffff20 !important;
+  background: #ddc3c307 !important;
 }
 
 
 .section-features .card {
   background-color: rgba(0, 0, 0, 0.35) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
+  border-color: rgb(208, 8, 8) !important;
   color: #fff; /* texto blanco */
 }
 
-/* --- Variables --- */
-:root {
-  --teal: #02000b;
-  --navy: #060042;
-  --sky-blue: #054b4a;
-  --accent-blue: #000000;
-  --beige: #221a01;
-  --white: #FFFFFF;
-  --dark-navy-alpha: rgba(16, 37, 66, 0.3);
-  --light-gray: #ccc;
-}
+
+
 
 
 /* --- Reset --- */
 * {
-    cursor: url(../assets/img/dedito.png) !important;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -50,13 +39,12 @@
 
 /* --- Body --- */
 body {
-    background-color: var(--beige);
-    color: var(--navy);
+    color: rgb(8, 2, 72) !important;
     display: flex;
     flex-direction: column; /* Asegura que el cuerpo sea un contenedor flex de columna */
     min-height: 100vh;
     /* Aplica una fuente pixelada a todo el cuerpo, si te gusta la legibilidad general */
-    font-family: 'Pixelify Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Pixelify Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     line-height: 1.6;
 }
 
@@ -68,7 +56,7 @@ h1 {
 /* --- Navbar --- */
 .navbar {
     background-color: rgb(0, 5, 56) !important;
-    box-shadow: 0 4px 12px rgba(23, 0, 66, 0.722); /* Sombra más pronunciada para profundidad */
+    box-shadow: 0 4px 12px rgba(170, 156, 196, 0.722); /* Sombra más pronunciada para profundidad */
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -79,7 +67,7 @@ h1 {
     font-weight: 700; /* Más negrita */
     letter-spacing: 1px; /* Espaciado entre letras */
     transition: color 0.3s ease;
-    font-family: 'VT323', monospace; /* Fuente pixelada para el nombre de la marca */
+    font-family: 'VT323', monospace !important; /* Fuente pixelada para el nombre de la marca */
     
     /* ESTILOS AGREGADOS PARA ALINEAR EL LOGO */
     display: flex; /* Convierte el enlace en un flex container */
@@ -94,6 +82,7 @@ h1 {
 
 /* ESTILOS AGREGADOS PARA EL LOGO DENTRO DE LA NAVBAR */
 .navbar-logo {
+    font-family: 'VT323', monospace !important; /* Fuente pixelada para el nombre de la marca */
     height: 40px; /* Tamaño del logo. Ajusta este valor si necesitas un tamaño diferente */
     margin-right: 10px; /* Espacio entre el logo y el texto "EnFoco" */
     vertical-align: middle; /* Para alinear verticalmente con el texto */
@@ -107,7 +96,7 @@ h1 {
 
 
 .nav-link {
-    color: var(--white) !important;
+    color: white !important;
     font-weight: 500;
     padding: 0.7rem 1.2rem; /* Más padding */
     border-radius: 8px; /* Más redondeado */
@@ -116,7 +105,7 @@ h1 {
 }
 
 .nav-link:hover {
-    color: var(--sky-blue) !important;
+    color: white !important;
     background-color: rgba(255, 255, 255, 0.15); /* Ligero fondo al pasar el ratón */
     transform: translateY(-2px); /* Efecto de "levantar" */
 }
@@ -124,7 +113,7 @@ h1 {
 /* --- Botones Generales (incluye .custom-btn-lg) --- */
 .btn-info,
 .custom-btn-lg {
-    background-color: var(--teal);
+    background-color: rgb(230, 237, 31);
     color: var(--white);
     border: none;
     border-radius: 50px; /* Más redondeado para un look moderno */
@@ -144,84 +133,136 @@ h1 {
 .btn-info:hover,
 .custom-btn-lg:hover {
     background-color: var(--navy);
-    transform: translateY(-4px); /* Efecto de "levantar" al pasar el ratón */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada al pasar el ratón */
-    color: var(--white);
 }
 
 /* Efecto de brillo para .custom-btn-lg */
 .custom-btn-lg::after {
-    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     width: 0;
     height: 0;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(41, 104, 205, 0.703);
     border-radius: 50%;
-    opacity: 0;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, opacity 0.4s ease-in-out;
-    z-index: -1;
+
 }
 
-.custom-btn-lg:hover::after {
-    width: 200%;
-    height: 200%;
-    opacity: 1;
-}
 
-/* login general*/
-/* --- Estilo general para el login --- */
-.custom-login-body {
-    background: linear-gradient(to bottom, var(--beige), var(--sky-blue));
-    color: var(--navy);
-}
-
-/* --- Tarjeta del formulario de login --- */
+/* --- Tarjeta del formulario de login y registro --- */
 .login-card {
-    background-color: var(--white);
-    border: 1px solid var(--teal);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    background: rgba(20, 22, 40, 0.93);
+    border: 2px solid var(--sky-blue);
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 400px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(6px);
 }
 
-/* --- Título del login --- */
 .login-card h2 {
-    color: var(--teal);
-    font-weight: 700;
-    font-size: 2.2rem;
-    font-family: 'Press Start 2P', cursive; /* Título del login */
+    color: #1de9b6;
+    font-family: 'Press Start 2P', cursive, 'Pixelify Sans', monospace, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    text-align: center;
+    text-shadow: 0 2px 8px #00000060;
 }
 
-/* --- Inputs del login --- */
+.login-card .form-label {
+    color: #fff;
+    font-family: 'Pixelify Sans', 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
 .login-card .form-control {
-    background-color: var(--sky-blue);
-    border: 1px solid var(--teal);
-    border-radius: 12px; /* Ligeramente más redondeado */
-    color: var(--navy);
-    padding: 0.75rem 1rem;
-    font-family: 'VT323', monospace; /* Fuente para inputs */
-}
-
-.login-card .form-control::placeholder {
-    color: rgba(47, 65, 86, 0.7); /* Color más oscuro para el placeholder */
+    background: rgba(5, 75, 74, 0.85);
+    border: 1.5px solid #1de9b6;
+    border-radius: 14px;
+    color: #fff;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    font-family: 'VT323', monospace, 'Pixelify Sans', sans-serif;
+    transition: border-color 0.3s, background 0.3s;
 }
 
 .login-card .form-control:focus {
-    border-color: var(--navy);
-    box-shadow: 0 0 0 0.25rem rgba(47, 65, 86, 0.35); /* navy transparente más fuerte */
-    background-color: var(--white); /* Fondo blanco al enfocar */
+    border-color: #fff;
+    background: rgba(5, 75, 74, 1);
+    outline: none;
 }
 
-/* --- Etiquetas de los inputs --- */
-.login-card .form-label {
-    color: var(--dark-navy);
-    font-weight: 600; /* Más negrita */
-    margin-bottom: 0.5rem;
-    font-family: 'Pixelify Sans', sans-serif; /* Fuente para etiquetas */
+.login-card .form-control::placeholder {
+    color: #b2dfdb;
+    opacity: 1;
+    font-family: 'VT323', monospace, 'Pixelify Sans', sans-serif;
 }
 
+.login-card .styled-button {
+    background: linear-gradient(90deg, #1de9b6 0%, #054b4a 100%);
+    color: #222;
+    font-size: 1.2rem;
+    font-family: 'Pixelify Sans', 'Montserrat', sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 2.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-card .styled-button:hover {
+    background: linear-gradient(90deg, #054b4a 0%, #1de9b6 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+}
+
+.login-card .extra-links {
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.login-card .extra-links a,
+.login-card .extra-links span {
+    color: #1de9b6;
+    font-family: 'Pixelify Sans', 'Montserrat', sans-serif;
+    font-size: 1rem;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.login-card .extra-links a:hover {
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .login-card {
+        padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+        max-width: 98vw;
+    }
+    .login-card h2 {
+        font-size: 1.2rem;
+    }
+}
 /* --- Botón estilizado para login --- */
 .styled-button {
     position: relative;
@@ -311,9 +352,14 @@ h1 {
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
     font-family: 'Press Start 2P', cursive; /* Título principal */
 }
+.main-content-index .lead {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem; /* Ajusta el tamaño si lo deseas */
+    color: white !important; /* O el color que prefieras */
+}
 
 .custom-subtitle {
-    color: white;
+    color: rgb(255, 255, 255) ;
     font-size: 1.6rem; /* Subtítulo más legible */
     max-width: 900px; /* Limita el ancho para mejor lectura */
     margin: 0 auto 3rem auto; /* Centra y añade más margen inferior */
@@ -329,7 +375,6 @@ h1 {
 /* Estilos generales de las tarjetas */
 /* No definimos colores de texto e icono aquí para que los individuales sobrescriban */
 .card {
-    background-color: var(--sky-blue); /* Este color de fondo será sobrescrito por la imagen en tarjetas específicas */
     border: 1px solid var(--teal);
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
@@ -338,7 +383,6 @@ h1 {
     position: relative;
     height: 100%;
     /* El degradado oscuro se aplica a todas las tarjetas que tienen imagen de fondo */
-    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -361,26 +405,34 @@ h1 {
 
 /* Iconos de las tarjetas */
 .card-body .fa-2x {
+    color: rgb(223, 223, 14)!important;
     font-size: 4rem;
     margin-bottom: 25px;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 .card:hover .card-body .fa-2x {
-    color: var(--sky-blue); /* Color del ícono al pasar el mouse */
+    color: rgb(3, 20, 90) !important; /* Color del ícono al pasar el mouse */
     transform: scale(1.15);
 }
 
 /* Títulos de las tarjetas */
 .card-title {
+    color: rgb(244, 228, 7) !important;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 18px;
     font-family: 'Pixelify Sans', sans-serif;
 }
-
+.card-title:hover{
+    color: rgb(3, 20, 90) !important;
+}
 /* Texto de las tarjetas */
+.card-text:hover{
+    color: #060042!important;
+}
 .card-text {
-    font-size: 1.2rem;
+    color: white !important;
+    font-size: 2.2rem;
     line-height: 1.8;
     font-family: 'VT323', monospace;
 }
@@ -388,120 +440,75 @@ h1 {
 /* --- Fondos específicos y colores de texto/iconos de las tarjetas --- */
 /* Tarjeta Calendario inteligente */
 #calendarCard {
-    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
+    background-image: linear-gradient(to bottom, rgba(8, 78, 159, 0.197) 0%, rgba(33, 69, 111, 0.697) 100%),
                       url('../assets/img/calendario.png');
     background-size: cover;
     background-position: center;
 }
-#calendarCard .card-body .fa-2x {
-    color: var(--navy); /* Icono */
-}
-#calendarCard .card-title {
-    color: var(--navy); /* Título */
-}
-#calendarCard .card-text {
-    color: var(--navy); /* Texto */
-}
+
 
 /* Tarjeta Objetivos diarios */
 #objectivesCard {
-    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.7) 0%, rgba(47, 65, 86, 0.5) 100%),
+    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.059) 0%,rgba(33, 69, 111, 0.697) 100%),
                       url('../assets/img/objjjetivvos.png');
     background-size: cover;
     background-position: center;
 }
-#objectivesCard .card-body .fa-2x {
-    color: var(--navy); /* Icono */
-}
-#objectivesCard .card-title {
-    color: var(--navy); /* Título */
-}
-#objectivesCard .card-text {
-    color: var(--navy); /* Texto */
-}
+
 
 /* Tarjeta Técnicas de enfoque */
-.card-mindfulness-inner {
-    /* Si tiene background-image, puedes agregarla aquí */
-    /* background-image: url('...'); */
-    background-color: var(--sky-blue); /* Si no tiene imagen, mantén este fondo */
-}
-.card-mindfulness-inner .card-body .fa-2x {
-    color: var(--navy); /* Icono */
-}
-.card-mindfulness-inner .card-title {
-    color: var(--navy); /* Título */
-}
-.card-mindfulness-inner .card-text {
-    color: var(--navy); /* Texto */
-}
-#tecnicasCard{
-    background-image: url("/EnFoco-FrontEnd/assets/img/tecnicasEnf.png");
-}
 
-/* Tarjeta Mapa de energía */
-.card-energy-inner {
-    /* Si tiene background-image, puedes agregarla aquí */
-    /* background-image: url('...'); */
-    background-color: var(--sky-blue); /* Si no tiene imagen, mantén este fondo */
-}
-.card-energy-inner .card-body .fa-2x {
-    color: var(--navy); /* Icono */
-}
-.card-energy-inner .card-title {
-    color: var(--navy); /* Título */
-}
-.card-energy-inner .card-text {
-    color: var(--navy); /* Texto */
+#tecnicasCard{
+    background-image: linear-gradient(to bottom, rgba(47, 65, 86, 0.059) 0%,rgba(33, 69, 111, 0.697) 100%),
+    url("/EnFoco-FrontEnd/assets/img/tecnicasEnf.png");
+    background-size: cover;
+    background-position: center;
 }
 
 #energiaCard{
-    background-image: url("/EnFoco-FrontEnd/assets/img/energyMAP.png");
+    background-image:  linear-gradient(to bottom, rgba(47, 65, 86, 0.059) 0%,rgba(33, 69, 111, 0.697) 100%),
+    url("/EnFoco-FrontEnd/assets/img/energyMAP.png");
+        background-size: cover;
+    background-position: center;
 }
 
-/* Regla para las tarjetas que NO tienen una clase "inner" específica ni ID */
-/* Esto cubre cualquier otra tarjeta general que no sea las 4 mencionadas */
-.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) {
-    background-color: var(--sky-blue); /* Fondo predeterminado */
-    background-image: none; /* Asegura que no tengan una imagen de fondo si no la quieres */
-}
-/* Colores específicos para estas tarjetas "genéricas" */
-.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) .card-body .fa-2x {
-    color: var(--teal); /* Ícono de estas tarjetas */
-}
-.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) .card-title {
-    color: var(--navy); /* Título de estas tarjetas */
-}
-.card:not(#calendarCard):not(#objectivesCard):not(.card-mindfulness-inner):not(.card-energy-inner) .card-text {
-    color: var(--dark-navy); /* Texto de estas tarjetas */
-}
 
 
 /* --- Sección "¿Quiénes somos?" --- */
+
+#quienes-somos {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgb(1, 1, 29) 100%
+    );
+    opacity: 0.9; /* Opcional, para más transparencia */
+}
 #quienes-somos h2 {
     font-family: 'Press Start 2P', cursive; /* Título de Quiénes somos */
     font-size: 3rem; /* Ajusta el tamaño si es necesario */
-    color: var(--navy);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    color: rgb(225, 204, 14);
+    text-shadow: 2px 2px 4px rgba(6, 1, 58, 0.854);
     margin-bottom: 1.5rem;
+    
 }
 
 #quienes-somos p.lead {
     font-family: 'Pixelify Sans', sans-serif; /* Párrafo principal de Quiénes somos */
-    font-size: 1.4rem;
-    color: var(--teal);
+    font-size: 1.3rem;
+    color: rgba(235, 222, 102, 0.793);
 }
 
 #quienes-somos p {
     font-family: 'VT323', monospace; /* Párrafo secundario de Quiénes somos */
     font-size: 1.1rem;
-    color: var(--dark-navy);
+    color: rgba(235, 222, 102, 0.793);
 }
 
 /* --- Footer --- */
 .custom-footer {
     background-color: var(--navy);
-    color: var(--sky-blue);
+    color: rgba(251, 255, 39, 0.337);
     padding: 30px 0;
     text-align: center;
     font-size: 1rem;
@@ -936,12 +943,7 @@ h1 {
     --enfoco-info-hover: #17a2b8; /* Azul cyan para botón "Ver día" */
 }
 
-/* --- Estilos Generales del Cuerpo --- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente un poco más moderna */
-    background-color: var(--bg-light);
-    color: var(--text-dark); /* Color de texto por defecto */
-}
+
 
 /* --- Estilos de la Barra de Navegación (Navbar) --- */
 .navbar {
